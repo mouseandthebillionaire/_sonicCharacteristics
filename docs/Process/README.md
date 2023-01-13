@@ -3,7 +3,7 @@
 
 ## Inititial Ideas | 23.01.09
 
-###  [Say what now what now?](https://youtu.be/_Ge4_stUpqs) <sup>[1](#####1)</sup>
+###  [Say what now what now?](https://youtu.be/_Ge4_stUpqs?t=19) <sup>[1](#####1)</sup>
 
 We have here a few initial ideas for design goals and themes to explore. Beyond that? Who knows!
 
