@@ -26,11 +26,13 @@ For reflective game design, two interesting approaches arise from this. How can 
 ### Character Creation Menus
 Mainly because of recent experiences with the character/stat management screens of two <em>very</em> different games ([Disco Elysium](https://discoelysium.com/) and [Olli Olli World](https://store.privatedivision.com/en/game/olliolli-world)), the idea of exploring a character's sonic thumbprint is of particular interest.
 
-<img src="https://www.gameuidatabase.com/uploads/Olli-Olli-World02102022-022721-94716.jpg" width="500px" /><sub>
-via gameui.database.com</sub>
+<img src="https://www.gameuidatabase.com/uploads/Olli-Olli-World02102022-022721-94716.jpg" width="500px" />
+<sub>via gameui.database.com</sub>
 
 <img src="http://www.playcritically.com/wp-content/uploads/2022/06/2022033119304900-1C1B527EE3CFDB01CA6E70A2AD4A19CE.jpg" width="500px" />
 <sub>via playcritically.com</sub>
+
+<p></p>
 
 The basic idea builds on the concepts of a previous sound installation. [zipCoda](http://www.mouseandthebillionaire.com/zipCoda/) creates a generative soundtrack for different US zip codes based on data scraped from the 2010 census. Can we do the same thing for character creation? Can the character traits be set on a sonic continuum to create an individual "theme song" for your character? And then, how might this affect how the player feels about their character? Additionally (and perhaps more immediately compelling), what kind of stand-alone experience could be made from these ideas? Could you create a David O'Reilly [Mountain](https://www.davidoreilly.com/mountain) experience where the player answers a few questions and a unique visual/soundscape is created? Could that sound/visual creation be then modified visually and/or sonically with immediate changes taking place in the other plane? This kind of audio/visual "toy" feels like a fun space to do some experimentation.
 
