@@ -1,7 +1,7 @@
 # Sonic Characteristics | Documentation!
 ***oh, dear. let's not let this be the final name for this thing, okay...?***
 
-## Inititial Ideas | 23.01.09
+## Inititial Ideas | 09.01.23
 
 ###  [Say what now what now?](https://youtu.be/_Ge4_stUpqs?t=19) <sup>[1](#####1)</sup>
 
@@ -39,7 +39,7 @@ The basic idea builds on the concepts of a previous sound installation. [zipCoda
 There seem to be a few possible directions:
 * Textual input (questions) leading to sonic/visual "thing"
 * Manipulate a visual character/thing that creates a unique song
-* Manipulate sonic paramaters that then creates a visible representation (character, object, diorama, etc) of that sound
+* Manipulate sonic parameters that then creates a visible representation (character, object, diorama, etc) of that sound
 
 Let us dwell on this for a bit.
 
@@ -51,4 +51,3 @@ Let us dwell on this for a bit.
 ##### 3 ibid.
 
 </sub>
-
