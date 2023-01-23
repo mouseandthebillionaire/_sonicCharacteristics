@@ -16,6 +16,6 @@ They way that Olli Olli World has so many different (and even sometimes very <em
 
 ## [Il Makiage](https://www.ilmakiage.com/powermatch-2-0-quiz-TBYB?cp)
 
-<img src="../Media/ilmakiage.png" width="500px" />
+<img src="Media/ilmakiage.png" width="500px" />
 
 Rilla mentioned Il Makiage's makeup colour matching tool as an interesting precedent here as well. Similar to the beginning of mountain, this uses text-based questions to come to a refined selection, which is definitely work exploring. There is something great about how these non-visually based decisions could then be used to create a visible item. There is also the opportunity for more esoteric/obfuscated questions to inform the item's creation. 
