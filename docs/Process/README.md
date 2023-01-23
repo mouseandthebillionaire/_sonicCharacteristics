@@ -51,3 +51,26 @@ Let us dwell on this for a bit.
 ##### 3 ibid.
 
 </sub>
+
+## An Idea Emerges! | 01.23.23
+
+### Tailored Questionnaire Music
+The main idea here is an extension of the initial user experience of [Please Hold](https://vimeo.com/246880360), where the answers that the player gives the system results in changes to the hold music. However, this experience will be screen based rather than analog phone based (even though it is oh so very very very tempting to revisit that darling Please Hold phone. We'll see. It's not out of the question). This doesn't answer the question of what the final visible object is from answering the questionnaire, but it does reframe it in an interesting way: rather than the questions being about the thing to be created, they end up being about the player. The hope here is that this could more easily introduce the reflective state that we are hoping for. It also introduces some new things to think about:
+
+### Goals / Design Values / Questions
+* this is extendable, which is great. We can start by building the questionnaire functionality and the accompanying musical framework, and then add to it during the design phase.
+* above all, ambiguity. In the questions asked, the musical changes, the overall vibe, this should feel compelling yet confusing, rather than obvious and understandable.
+* this means, for example, that a question such as "Would you rather live in the city or the country?" (which is already a dumb question) does _not_ result in the addition of city and/or nature sounds because that is beyond dumb.
+* reflection, as before, is the desired outcome. Do we need to know on what specific thing the user should be reflecting on? Or is it possible to create a blanket "reflective state?"
+* The mechanic of "answering questions" should be much broader than how that sounds. Micro-tasks in particular could be well-implemented here ("arrange these matchsticks in a pleasing way", "using only one color, paint a representation of your ideal day") The fluxus [puzzle boxes of George Brecht](https://www.fondazionebonotto.org/it/collection/fluxus/brechtgeorge/423.html) are an obvious precedent here.
+* Is it possible to think about the questions and ensuing sounds on a triangular spectrum (like the ol' [quality/time/cost triangle](https://medium.com/contractstandards/contract-performance-metrics-the-hidden-cost-of-protracted-negotiations-2cbead6d74af)) rather than on a linear scale. This feels like it could add to the ambiguity/complexity in engaging ways (but also... maybe it's too fussy? Or difficult!?)
+
+### Important Note
+One thing that should be mentioned here, but hasn't come up yet: Another goal of this project is to try three different music/sound systems with the same visual/ludic element. So the same game, but three sound treatments in three completely different frameworks, which are:
+1. FMOD
+2. routing the sound out via midi to Ableton Live
+3. routing the sound out to an external Analog Synthesizer, using MaxMSP as the bridge
+
+### Sounds Fun! Let's Get Building!
+
+
