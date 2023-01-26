@@ -91,3 +91,6 @@ So, working from that insight, we begin to narrow the focus a little. The user a
 * Is there still some sort of "theme"? Calling it "self-portrait song creator" is a bit yawn.
 
 And it works!
+
+<video src="https://user-images.githubusercontent.com/8988958/214916388-90996ac6-2b91-4349-986e-fed7d86ab860.mov" controls="controls"></video>
+
