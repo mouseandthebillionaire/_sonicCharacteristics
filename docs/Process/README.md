@@ -73,4 +73,21 @@ One thing that should be mentioned here, but hasn't come up yet: Another goal of
 
 ### Sounds Fun! Let's Get Building!
 
+## Sh'okay! Sh'okay! | 01.26.23
 
+### An Idea Tweak. A _Great_ Idea Tweak
+
+In a discussion with [RK](https://www.rillakhaled.com/) yesterday the _problem of what the final thing of this even is_ arises (a certificate, a date, a robot, an outfit, etc), and she says "couldn't the thing that they get just be the music?"
+
+Oho!
+
+So, working from that insight, we begin to narrow the focus a little. The user answers a series of questions (or does some alternative fluxusy tasks as noted above), and as they progress the music is slowly evolving and adapting in the background. Meanwhile, under the hood, the program is recording the entire experience so that when you are done you are delivered a recording of the X number of minutes that you spent on the process. It almost becomes a sort of co-creation series of "self-portraits" album/playlist?
+
+### Questions/Thoughts that Arise:
+* Once they user is done, how much of that final song is played? Does it abruptly end when they close the window? Can we get it to fade out? Does it sustain for some determined length of time?
+* The idea of an online repository to host the variety of songs is obviously is of interest. Soundcloud? Bandcamp? Website? 
+* The musical possibilities will need to be wide here to make each track feel tailored to the user
+* We can record out the audio to a wav file using [this strategy](https://forum.unity.com/threads/writing-audiolistener-getoutputdata-to-wav-problem.119295/), but is is also probably a good idea to note down the time/value of each decision in a text file so that the song can be recreated in higher quality later? 
+* Is there still some sort of "theme"? Calling it "self-portrait song creator" is a bit yawn.
+
+And it works!
