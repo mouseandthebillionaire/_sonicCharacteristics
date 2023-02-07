@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/ProgressTest.unity
+    guid: aa50122ca372049f5ab760dc83a74a44
   m_configObjects: {}
