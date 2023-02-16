@@ -25,7 +25,13 @@ public class QuestionManager : MonoBehaviour {
     
     // Load another Question
     public void NewQuestion() {
-        // in this version let's just work through a set of 10 questions
         Debug.Log("loading next question");
+        // in this test version let's just work through a set of 5 questions
+        currQuestion++;
+        
+        questions[currQuestion].SetActive(true);
+        
+
+
     }
 }
