@@ -27,11 +27,16 @@ public class QuestionManager : MonoBehaviour {
     public void NewQuestion() {
         Debug.Log("loading next question");
         // in this test version let's just work through a set of 5 questions
-        currQuestion++;
-        
-        questions[currQuestion].SetActive(true);
-        
 
-
+        // Eventually we'll have to figure out a different way to figure out where we are in the question process
+        if (currQuestion+1 < questions.Length)
+        {
+            currQuestion++;
+            questions[currQuestion].SetActive(true);
+        }
+        else
+        {
+            Debug.Log("Questions Over. Load the Ending");
+        }
     }
 }

@@ -26,6 +26,9 @@ public class Question : MonoBehaviour {
         // For now, let's just pick some random snarky things to say
         StartCoroutine(Snark());
         
+        // Process the audio changes...
+        AudioManager.S.UpdateSoundtrack();
+        
         // Take a second to read the snark
         yield return new WaitForSeconds(2);
         
