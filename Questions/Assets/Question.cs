@@ -12,13 +12,17 @@ public class Question : MonoBehaviour {
     private string[] snarkText = new string[]{"really?", "sure. okay, that's a pretty good number. I guess.",
         "oh now you're just messing with me", "way to phone it in.", "Nothing surprises me at this point."}; 
 
-    public void SubmitAnswer() {
+    public void SubmitAnswer()
+    {
         StartCoroutine(ProcessAnswer());
     }
 
-    private IEnumerator ProcessAnswer() {
-        Debug.Log(dropdown.value);
-        AudioManager.S.UpdateSoundtrack();
+    private IEnumerator ProcessAnswer()
+    {
+        // for now we're dealing with a discrete value from the dropdown
+        // this will need to be more nunanced later
+        int answer = dropdown.value;
+        Debug.Log(answer);
         
         // Say something about it?
         // Maybe attach a text file to each question holding these comments
@@ -27,7 +31,7 @@ public class Question : MonoBehaviour {
         StartCoroutine(Snark());
         
         // Process the audio changes...
-        AudioManager.S.UpdateSoundtrack();
+        AudioManager.S.UpdateSoundtrack(answer);
         
         // Take a second to read the snark
         yield return new WaitForSeconds(2);

@@ -6,6 +6,8 @@ public class QuestionManager : MonoBehaviour {
     public GameObject[] questions;
     public int currQuestion;
 
+    public GameObject gameOverDialogue;
+
     public static QuestionManager S;
 
     void Awake() {
@@ -36,7 +38,7 @@ public class QuestionManager : MonoBehaviour {
         }
         else
         {
-            Debug.Log("Questions Over. Load the Ending");
+            gameOverDialogue.SetActive(true);
         }
     }
 }
