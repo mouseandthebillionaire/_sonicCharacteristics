@@ -16,8 +16,7 @@ public class QuestionManager : MonoBehaviour {
     
     // Start is called before the first frame update
     void Start() {
-        currQuestion = 0;
-        // Ah, yes! But here is an easier and better solution that actually makes sense!!!
+        currQuestion = -1;
     }
 
     // Update is called once per frame

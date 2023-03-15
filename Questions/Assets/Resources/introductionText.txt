@@ -1,0 +1,10 @@
+Hello.;false
+We would like to have you answer a few questions and complete a small number of exercises to ascertain and evaluate your sonic fingerprint.;false
+Click anywhere on the screen if you consent to these questions.;false
+Fantastic.;false
+First, take a deep breath, and then click the screen as you slowly release that breath.;true
+And again.;true
+One more time, as naturally as possible, please.;true
+That felt a little on the *unnatural* side. Could you try that one more time.;true
+Yes. That was much better.;false
+Excellent, now we can begin.;false
