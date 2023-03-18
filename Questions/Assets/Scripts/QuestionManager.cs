@@ -17,6 +17,7 @@ public class QuestionManager : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         currQuestion = -1;
+        // testing linking
     }
 
     // Update is called once per frame
