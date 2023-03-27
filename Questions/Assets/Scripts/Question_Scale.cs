@@ -6,12 +6,23 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Question : MonoBehaviour {
-    public TMPro.TMP_Dropdown dropdown;
+public class Question_Scale : MonoBehaviour {
+    [Header("What question do we want to ask them")]
+    public string question;
 
-    private string[] snarkText = new string[]{"really?", "sure. okay, that's a pretty good number. I guess.",
-        "oh now you're just messing with me", "way to phone it in.", "Nothing surprises me at this point."}; 
-
+    [Header("What effect will be applied")]
+    public int effect;
+    
+    // Eventually let's make this a 2D array so there's more variety
+    // Also, we could import an array of responses from a resource file, but this is fine for now
+    private string[] responseText = new string[]
+    {
+        "really?",
+        "I'm sorry to hear that.",
+        "yeah?",
+        "oh, yeah? Huh.",
+        "well, okay then!"
+    };
     public void SubmitAnswer()
     {
         StartCoroutine(ProcessAnswer());
@@ -21,17 +32,17 @@ public class Question : MonoBehaviour {
     {
         // for now we're dealing with a discrete value from the dropdown
         // this will need to be more nunanced later
-        int answer = dropdown.value;
-        Debug.Log(answer);
+        int questionValue = (int)GetComponentInChildren<Slider>().value;
+        Debug.Log(questionValue);
         
         // Say something about it?
         // Maybe attach a text file to each question holding these comments
         // Probably with a Coroutine?
         // For now, let's just pick some random snarky things to say
-        StartCoroutine(Snark());
+        StartCoroutine(Response(questionValue));
         
         // Process the audio changes...
-        AudioManager.S.UpdateSoundtrack(answer);
+        AudioManager.S.UpdateSoundtrack(effect, questionValue);
         
         // Take a second to read the snark
         yield return new WaitForSeconds(2);
@@ -44,10 +55,10 @@ public class Question : MonoBehaviour {
         yield return null;
     }
 
-    private IEnumerator Snark()
+    private IEnumerator Response(int responseValue)
     {
-        TMPro.TMP_Text snark = GameObject.Find("Snark").GetComponent<TMP_Text>();
-        snark.text = snarkText[QuestionManager.S.currQuestion];
+        TMPro.TMP_Text snark = GameObject.Find("Response").GetComponent<TMP_Text>();
+        snark.text = responseText[responseValue];
         yield return null;
     }
 }

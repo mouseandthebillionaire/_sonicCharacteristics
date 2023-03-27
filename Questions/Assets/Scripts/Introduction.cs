@@ -8,6 +8,8 @@ using UnityEngine.UIElements;
 
 public class Introduction : MonoBehaviour
 {
+    public bool skipIntro;
+    
     // Manage the Text
     private TextAsset    introText_asset;
     public  List<string> introText  = new List<string>();
@@ -27,8 +29,14 @@ public class Introduction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetText();
-        StartCoroutine(UpdateText());
+        // Are we skipping all of this for testing reasons?
+        if (skipIntro) ExitIntro();
+
+        else
+        {
+            GetText();
+            StartCoroutine(UpdateText());
+        }
     }
 
     // Update is called once per frame
@@ -89,9 +97,7 @@ public class Introduction : MonoBehaviour
         if (currText+1 >= introText.Count)
         {
             // Then let's load the questions and exit the intro
-            QuestionManager.S.NewQuestion();
-            Debug.Log("shut it down");
-            this.gameObject.SetActive(false);
+            ExitIntro();
             yield break;
         }
         // Change the text
@@ -130,5 +136,12 @@ public class Introduction : MonoBehaviour
         chimerList.Add(c.GetComponent<Chimer>());
         
     }
-    
+
+    private void ExitIntro()
+    {
+        QuestionManager.S.StartQuestions();
+        Debug.Log("shut it down");
+        this.gameObject.SetActive(false);
+    }
+
 }

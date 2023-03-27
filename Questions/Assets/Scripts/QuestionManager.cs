@@ -13,17 +13,17 @@ public class QuestionManager : MonoBehaviour {
     void Awake() {
         S = this;
     }
-    
-    // Start is called before the first frame update
-    void Start() {
-        currQuestion = -1;
-        // testing linking
-    }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void StartQuestions()
+    {
+        currQuestion = 0;
+        questions[currQuestion].SetActive(true);
     }
     
     // Load another Question

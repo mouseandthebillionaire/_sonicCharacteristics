@@ -19,7 +19,7 @@ public class AudioManager : MonoBehaviour {
         
     }
 
-    public void UpdateSoundtrack(int answer)
+    public void UpdateSoundtrack(int effect, int answer)
     {
         int a = answer;
         Debug.Log(a);
@@ -27,12 +27,12 @@ public class AudioManager : MonoBehaviour {
         // maybe for now, let's update based on what# question you're on
         // probably not good for later (especially with a branching structure) but a place to start!
         
-        // should probably pass in the question number... but for now we can just grab it from the QuestionManager
-        switch (QuestionManager.S.currQuestion)
+        // question decides which effect to employ
+        switch (effect)
         {
             case 0:
                 Debug.Log("Question 0");
-                // Example of choosing a dominant lead instrument
+                // Choose a dominant lead instrument
                 if (a < 4)
                 {
                     // piano
