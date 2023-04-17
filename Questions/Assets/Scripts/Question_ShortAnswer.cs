@@ -14,8 +14,6 @@ public class Question_ShortAnswer : Question {
         TMP_InputField input = GameObject.Find("AnswerText").GetComponent<TMP_InputField>();
         string answer = input.text;
         int answerLength = answer.Length;
-        int e = (int)this.effect;
-        Debug.Log(e);
     }
     
 }

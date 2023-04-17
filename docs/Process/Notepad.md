@@ -6,7 +6,10 @@ Time to get down to brass tacks and think about what the order of these question
 
 * Intro
 * How are you feeling today -> effects Q?
-* Can you tell me more about that? -> count number of words and effect Q?
+* Oh yeah? How many hours of sleep did you get last night? ->
+* Gotcha. How much time did you spend on screen yesterday?
+* Would you say that that is normal for you?
+* WEIRD ASIDE (pick from a few)
 * You have just moved to a new city by yourself. You haven't made any close friendships yet, but have invited a few coworkers to your place for drinks. What food would you serve to ensure that they are thoroughly impressed but doesn't show that you have overthought this?
 * Which animal is best?
 * What color was your childhood bedroom?

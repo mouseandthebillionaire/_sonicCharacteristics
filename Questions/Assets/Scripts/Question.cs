@@ -10,20 +10,12 @@ public class Question: MonoBehaviour {
     [Header("What question do we want to ask them")]
     public string question;
 
-    public enum Effects
-    {
-        LeadInstrument = 0,
-        DelayWetMix = 1,
-        DelayTime = 2,
-        Distortion = 3,
-        Pitch = 4
-    };
+    [Header("Are the responses random?")]
+    // otherwise we can link them to the specific answer given
+    public bool randomResponse;
 
-    public Effects effect = new Effects();
-    
-    // Eventually let's make this a 2D array so there's more variety
-    // Also, we could import an array of responses from a resource file, but this is fine for now
-    private string[] responseText = new string[]
+    [Header("these can be edited for greater immersion")]
+    public string[] responseText = new string[]
     {
         "really?",
         "I'm sorry to hear that.",
@@ -31,27 +23,42 @@ public class Question: MonoBehaviour {
         "oh, yeah? Huh.",
         "well, okay then!"
     };
+
+    // Effect Chooser
+    // Not actually using this right now, but let's save it for later
+    // public enum Effects
+    // {
+    //     LeadInstrument = 0,
+    //     DelayWetMix = 1,
+    //     DelayTime = 2,
+    //     Distortion = 3,
+    //     Pitch = 4
+    // };
+    //
+    // public Effects effect = new Effects();
+    
     public void SubmitAnswer()
     {
-        StartCoroutine(ProcessAnswer());
+        int questionValue = (int)GetComponentInChildren<Slider>().value;
+        StartCoroutine(ProcessAnswer(questionValue));
     }
 
-    private IEnumerator ProcessAnswer()
+    private IEnumerator ProcessAnswer(int value)
     {
-        // for now we're dealing with a discrete value from the dropdown
-        // this will need to be more nunanced later
-        int questionValue = (int)GetComponentInChildren<Slider>().value;
-        Debug.Log(questionValue);
+        int v = value;
         
+        // Store it in the GlobalVariables
+        GlobalVariables.S.AddAnswer(v);
+
         // Say something about it?
         // Maybe attach a text file to each question holding these comments
         // Probably with a Coroutine?
         // For now, let's just pick some random snarky things to say
-        StartCoroutine(Response(questionValue));
+        StartCoroutine(Response(v));
         
         // Process the audio changes...
-        int effect = 0;
-        AudioManager.S.UpdateSoundtrack(effect, questionValue);
+        // for now, let's update based on what# question you're on
+        AudioManager.S.UpdateSoundtrack();
         
         // Take a second to read the snark
         yield return new WaitForSeconds(2);
