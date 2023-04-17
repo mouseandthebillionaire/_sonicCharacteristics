@@ -7,10 +7,11 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour {
     public static AudioManager S;
 
-    public  AudioClip[] rootNotes;
     private int         songRoot;
 
     private int         tempo;
+
+    public LibPdInstance pdPatch;
 
     public AudioMixerSnapshot[] mainInstrumentVolume;
     public AudioMixer           mainMixer;
@@ -21,16 +22,18 @@ public class AudioManager : MonoBehaviour {
 
     public void Start()
     {
-        // Choose one of the root notes to make the MAIN ROOT for this song
-        songRoot = Random.Range(0, rootNotes.Length);
-        Debug.Log(songRoot);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        // Test
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            pdPatch.SendBang("start");
+            Debug.Log("bang?");
+        }
     }
 
     public void UpdateSoundtrack()
@@ -49,17 +52,10 @@ public class AudioManager : MonoBehaviour {
                 tempo = 1 / GlobalVariables.S.answers[stage];
                 // Create the AudioSource
                 
-                StartCoroutine(Root());
                 break;
             default:
                 break;
         }
     }
-
-    IEnumerator Root()
-    {
-        
-        yield return new WaitForSecondsRealtime(tempo);
-        return null;
-    }
+    
 }
