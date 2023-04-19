@@ -22,6 +22,13 @@ public class Introduction : MonoBehaviour
     private List<Chimer> chimerList = new List<Chimer>();
     private bool         clickable;
     
+    // Get Tempo
+    private float       startTime;
+    private List<float> timeIntervals = new List<float>();
+    public  float       tempo;
+
+    public LibPdInstance pdPatch;
+    
     
     // Objects to Display the Text
     public TMPro.TMP_Text introText_display;
@@ -58,7 +65,8 @@ public class Introduction : MonoBehaviour
             // Are we supposed to create a chimer for this click?
             if (chimeClick[currText]){
                 CreateChime();
-                Debug.Log("ding!");
+                // And use this to set the tempo
+                TapTempo();
             }
             StartCoroutine(UpdateText());
         }
@@ -137,10 +145,39 @@ public class Introduction : MonoBehaviour
         
     }
 
+    private void TapTempo()
+    {
+        
+        // if this is the first one just mark down when it was clicked
+        if (startTime == 0)
+        {
+            startTime = Time.time;
+        }
+        else
+        {
+            float elapsedTime = Time.time - startTime;
+            timeIntervals.Add(elapsedTime);
+            startTime = Time.time;
+        }
+        
+        // if we have all three time intervals, spit out that BPM!
+        if (timeIntervals.Count == 3)
+        {
+            float totalTime = 0;
+            for (int i = 0; i < timeIntervals.Count; i++)
+            {
+                totalTime += timeIntervals[i];
+            }
+
+            tempo = (totalTime / timeIntervals.Count) * 40f;
+            Debug.Log(tempo);
+            pdPatch.SendFloat("tempo", tempo);
+        }
+    }
+
     private void ExitIntro()
     {
         QuestionManager.S.StartQuestions();
-        Debug.Log("shut it down");
         this.gameObject.SetActive(false);
     }
 

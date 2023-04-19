@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class Question: MonoBehaviour {
     [Header("What question do we want to ask them")]
     public string question;
-
+    
     public bool answerNeeded;
 
     [Header("Are the responses random?")]
@@ -25,6 +25,34 @@ public class Question: MonoBehaviour {
         "oh, yeah? Huh.",
         "well, okay then!"
     };
+
+    private Image fadePanel;
+    private float textFadeSpeed = 1f;
+
+    private void Start()
+    {
+        StartCoroutine(FadeIn());
+    }
+
+    private IEnumerator FadeIn()
+    {
+        fadePanel = GameObject.Find("FadePanel").GetComponent<Image>();
+        
+        // Fade in the New Text
+        while (fadePanel.color.a > 0.0f)
+        {
+            fadePanel.color = new Color(
+                fadePanel.color.r,
+                fadePanel.color.g,
+                fadePanel.color.b,
+                fadePanel.color.a - (Time.deltaTime * textFadeSpeed));
+            yield return null;
+        }
+
+        //fadePanel.gameObject.SetActive(false);
+    }
+    
+    
 
     // Effect Chooser
     // Not actually using this right now, but let's save it for later
@@ -60,21 +88,18 @@ public class Question: MonoBehaviour {
             // Maybe attach a text file to each question holding these comments
             // Probably with a Coroutine?
             // For now, let's just pick some random snarky things to say
-            StartCoroutine(Response(v));
+            // StartCoroutine(Response(v));
 
             // Process the audio changes...
             // for now, let's update based on what# question you're on
             AudioManager.S.UpdateSoundtrack();
 
             // Take a second to read the snark
-            yield return new WaitForSeconds(2);
+            // yield return new WaitForSeconds(2);
         }
-
-        // Hide the question when all this is finished
-        this.gameObject.SetActive(false);
         
-        // Tell the Question Manager to load the next question
-        QuestionManager.S.NewQuestion();
+        // And fade out
+        StartCoroutine(FadeOut());
         yield return null;
     }
 
@@ -83,5 +108,30 @@ public class Question: MonoBehaviour {
         TMPro.TMP_Text snark = GameObject.Find("Response").GetComponent<TMP_Text>();
         snark.text = responseText[responseValue];
         yield return null;
+    }
+    
+    private IEnumerator FadeOut()
+    {
+        fadePanel = GameObject.Find("FadePanel").GetComponent<Image>();
+        //fadePanel.gameObject.SetActive(true);
+        
+        // Fade in the New Text
+        while (fadePanel.color.a < 1.0f)
+        {
+            fadePanel.color = new Color(
+                fadePanel.color.r,
+                fadePanel.color.g,
+                fadePanel.color.b,
+                fadePanel.color.a + (Time.deltaTime * textFadeSpeed));
+            yield return null;
+        }
+        
+        // Hide the question when all this is finished
+        this.gameObject.SetActive(false);
+        
+        // And tell the Question Manager to load the next question
+        QuestionManager.S.NewQuestion();
+
+        
     }
 }
