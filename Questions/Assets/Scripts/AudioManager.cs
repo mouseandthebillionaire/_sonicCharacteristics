@@ -9,7 +9,8 @@ public class AudioManager : MonoBehaviour {
 
     private int         songRoot;
 
-    private int         tempo;
+    private int tempo;
+    private float loopLength = 32;
 
     public LibPdInstance pdPatch;
 
@@ -28,12 +29,20 @@ public class AudioManager : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        // Test
+        // Testers
+        // Reset the Lead Line
         if (Input.GetKeyDown(KeyCode.A))
         {
             pdPatch.SendBang("start");
-            Debug.Log("bang?");
         }
+        // Cycle through lengths
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (loopLength / 2 != 0.5f) loopLength = loopLength / 2f;
+            else loopLength = 32f;
+            pdPatch.SendFloat("length", loopLength);
+        }
+        
     }
 
     public void UpdateSoundtrack()
