@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3386,6 +3386,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pdPatch: {fileID: 2092145520}
+  noteSpread: 0
+  lineLength: 0
+  instrument: 0
   mainInstrumentVolume:
   - {fileID: -6654904072690665281, guid: 1b855520d905145c6a33c9971604e33c, type: 2}
   - {fileID: -5270098538390471320, guid: 1b855520d905145c6a33c9971604e33c, type: 2}
@@ -4044,11 +4047,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4026297359356931050, guid: 6b7593000e55c4172b5aed147f4afd24, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4026297359933617765, guid: 6b7593000e55c4172b5aed147f4afd24, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4026297360485380537, guid: 6b7593000e55c4172b5aed147f4afd24, type: 3}
       propertyPath: m_Name
@@ -4056,7 +4059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4026297360485380537, guid: 6b7593000e55c4172b5aed147f4afd24, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4026297360485380538, guid: 6b7593000e55c4172b5aed147f4afd24, type: 3}
       propertyPath: m_RootOrder
