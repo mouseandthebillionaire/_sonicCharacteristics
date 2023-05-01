@@ -136,6 +136,7 @@ In this version the player answers a series of questions that effect various par
 	* nothing
 	* this could be an easy branching spot. There's only 3 choices so what could those three answers say about where the music should go?
 * Option to download the song
+	* this isn't actually working, and it's going to make me lose my mind. So many of the decisions these last months have been based on the expectation that the earlier test would hold true here. It's going to work, but there needs to be some serious trouble-shooting to figure out why it isn't working right now. For future audio work, it's probably a good idea to keep testing the audio aspects throughout the project; they seem to have th tendency to break in totally incomprehensible and odd ways.
 
 ### A few Thoughts:
 * The comnposition of the music is really fun, but very challenging. It takes a lot of time to export out sounds and then test those sounds in context. The PureData patches help with that, but more might need to be done in this vein to streamline future workflow.
