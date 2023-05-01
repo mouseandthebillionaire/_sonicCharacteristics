@@ -18,18 +18,9 @@ public class Introduction : MonoBehaviour
     public  float        textFadeSpeed = 1f;
 
     // Chimer stuff
-    public  GameObject   chimerPrefab;
-    private List<Chimer> chimerList = new List<Chimer>();
     private bool         clickable;
-    
-    // Get Tempo
-    private float       startTime;
-    private List<float> timeIntervals = new List<float>();
-    public  float       tempo;
 
-    public LibPdInstance pdPatch;
-    
-    
+
     // Objects to Display the Text
     public TMPro.TMP_Text introText_display;
 
@@ -56,17 +47,9 @@ public class Introduction : MonoBehaviour
     {
         if (clickable)
         {
-            // stop the last chimer if one is going
-            if (chimerList.Capacity > 0 && chimerList.Capacity < 5)
-            {
-                Debug.Log("there's another chimer going");
-            }
-            
             // Are we supposed to create a chimer for this click?
             if (chimeClick[currText]){
-                CreateChime();
-                // And use this to set the tempo
-                TapTempo();
+                AudioManager.S.CreateChime();
             }
             StartCoroutine(UpdateText());
         }
@@ -128,51 +111,6 @@ public class Introduction : MonoBehaviour
         // Only accept a click once all this folderol has happened
         clickable = true;
 
-    }
-
-    private void CreateChime()
-    {
-        // Instantiate the chimer
-        GameObject c;
-        c = Instantiate(chimerPrefab);
-        c.transform.position = Input.mousePosition;
-        c.transform.parent = GameObject.Find("Chimers").GetComponent<Transform>();
-        
-
-        
-        // Get this current Chimer script and add it to our list
-        chimerList.Add(c.GetComponent<Chimer>());
-        
-    }
-
-    private void TapTempo()
-    {
-        
-        // if this is the first one just mark down when it was clicked
-        if (startTime == 0)
-        {
-            startTime = Time.time;
-        }
-        else
-        {
-            float elapsedTime = Time.time - startTime;
-            timeIntervals.Add(elapsedTime);
-            startTime = Time.time;
-        }
-        
-        // if we have all three time intervals, spit out that BPM!
-        if (timeIntervals.Count == 3)
-        {
-            float totalTime = 0;
-            for (int i = 0; i < timeIntervals.Count; i++)
-            {
-                totalTime += timeIntervals[i];
-            }
-
-            tempo = (totalTime / timeIntervals.Count) * 40f;
-            Debug.Log(tempo);
-            pdPatch.SendFloat("tempo", tempo);
-        }
     }
 
     private void ExitIntro()

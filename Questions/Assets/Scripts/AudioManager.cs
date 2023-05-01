@@ -3,16 +3,41 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Rendering;
+using UnityEngine.TextCore.LowLevel;
 
 public class AudioManager : MonoBehaviour {
     public static AudioManager S;
 
     private int         songRoot;
 
-    private int tempo;
     private float loopLength = 32;
 
-    public AudioMixerSnapshot[] mainInstrumentVolume;
+    // Chimer Stuff
+    public  GameObject   chimerPrefab;
+    private List<Chimer> chimerList = new List<Chimer>();
+    
+    // Get Tempo
+    private float       startTime;
+    private List<float> timeIntervals = new List<float>();
+    public  float       tempo;
+
+
+    public LibPdInstance rightHand;
+    public LibPdInstance leftHand;
+    public LibPdInstance sfx;
+    public LibPdInstance woodwindArp;
+
+    public AudioMixerSnapshot beginQuestions;
+    public AudioMixerSnapshot addKeys;
+    public AudioMixerSnapshot addSFX;
+
+    public AudioMixerSnapshot[] foodQuestionResults;
+
+    // this could be an array eventually / or a PD patch of different outro possibilities
+    public AudioMixerSnapshot outro;
+
+    public AudioMixerSnapshot[] snapshotStages;
     public AudioMixer           mainMixer;
     
     void Awake() {
@@ -21,7 +46,9 @@ public class AudioManager : MonoBehaviour {
 
     public void Start()
     {
-
+        tempo = 60f;
+        leftHand.SendFloat("tempo", tempo);
+        rightHand.SendFloat("tempo", tempo);
     }
     
 
@@ -33,24 +60,177 @@ public class AudioManager : MonoBehaviour {
 
     public void UpdateSoundtrack()
     {
-        int a = GlobalVariables.S.answers[QuestionManager.S.currQuestion];
-        Debug.Log(a);
-
         // stage is chosen based on what question we are on
         int stage = QuestionManager.S.currQuestion;
+        
+        // What value did we get from the question?
+        int a = GlobalVariables.S.answers[stage];
+
+        
         Debug.Log("Starting Stage " + stage);
 
         switch (stage)
         { 
             case 0:
-                // Set the tempo and start the root note playing
-                tempo = 1 / GlobalVariables.S.answers[stage];
-                // Create the AudioSource
+                // Set the third note in the RhythmicSynth
+                RhythmicSynth.S.AddNotes(a);
+                // Update Instrument for Leads
+                leftHand.SendFloat("instrument", a);
+                rightHand.SendFloat("instrument", a);
                 
+                // Effect the overall pitch of this? That could be funny?
+                float pitch = 1f - (a * .025f);
+                mainMixer.SetFloat("masterPitch", pitch);
+
+                break;
+            case 1:
+                // Set the fourth note in the RhythmicSynth
+                RhythmicSynth.S.AddNotes(a);
+                
+                // Update Note Speed for Leads
+                // Less sleep means you need more notes to pep you up!
+                float noteSpeed = (a + 1) * 0.25f;
+                rightHand.SendFloat("noteSpeed", noteSpeed);
+                // Left Hand is half the speed
+                noteSpeed = noteSpeed * 2;
+                leftHand.SendFloat("noteSpeed", noteSpeed);
+                break;
+            case 2:
+                // Manipulate sfx patch
+                sfx.SendFloat("levels", a);
+            
+                // Update Line Length for Leads
+                float lineLength = (a + 1) * 2;
+                leftHand.SendFloat("length", lineLength);
+                rightHand.SendFloat("length", lineLength);
+                break;
+            case 3:
+                // Add delay to SFX and bring them in
+                addKeys.TransitionTo(5);
+            
+                // Update note spread for Leads
+                float noteSpread = (a + 1) * 2;
+                leftHand.SendFloat("noteSpread", noteSpread);
+                rightHand.SendFloat("noteSpread", noteSpread);
+                
+                
+                break;
+            case 4:
+                // first aside about the person not using screens
+                // Start the SFX playing
+                sfx.SendBang("sfxPlay");
+                // And then turn up the volume
+                addSFX.TransitionTo(5);
+                break;
+            case 5:
+                // animal question ties to arp
+                woodwindArp.SendFloat("instrument", a);
+                // ARP has its own automatic volume increasing
+                woodwindArp.SendBang("start");
+                break;
+            case 6:
+                // food question
+                foodQuestionResults[a].TransitionTo(5f);
+                break;
+            case 7:
+                // Bedroom question, don't do anything for now
+                break;
+            case 8:
+                // banana aside, do nothing
+                break;
+            case 9:
+                // Books #1 -
+                // For now no matter what, we're going to SLOWLY transition to only woodwinds and SpaceSynth
+                outro.TransitionTo(20f);
                 break;
             default:
                 break;
         }
+    }
+    
+    public void CreateChime()
+    {
+        // Instantiate the chimer
+        GameObject c;
+        c = Instantiate(chimerPrefab);
+        c.transform.position = Input.mousePosition;
+        c.transform.parent = GameObject.Find("Chimers").GetComponent<Transform>();
+        
+
+        
+        // Get this current Chimer script and add it to our list
+        chimerList.Add(c.GetComponent<Chimer>());
+        
+        TapTempo();
+    }
+    
+    // A method to return the adjusted tempo (from the MainMixer's Pitch Adjustment)
+    public float GetMasterPitch()
+    {
+        float value;
+        bool result = mainMixer.GetFloat("masterPitch", out value);
+        if (result) return value;
+        else return 1f;
+    }
+    
+    private IEnumerator Chimers()
+    {
+        yield return new WaitForSeconds(tempo / 40);
+        for (int i = 0; i < chimerList.Count; i++)
+        {
+            chimerList[i].Chime();
+            yield return new WaitForSecondsRealtime(tempo / (40 * GetMasterPitch()));
+        }
+
+        StartCoroutine(Chimers());
+    }
+    
+    private void TapTempo()
+    {
+        
+        // if this is the first one just mark down when it was clicked
+        if (startTime == 0)
+        {
+            startTime = Time.time;
+        }
+        else
+        {
+            float elapsedTime = Time.time - startTime;
+            timeIntervals.Add(elapsedTime);
+            startTime = Time.time;
+        }
+        
+        // if we have all three time intervals, spit out that BPM!
+        if (timeIntervals.Count == 3)
+        {
+            float totalTime = 0;
+            for (int i = 0; i < timeIntervals.Count; i++)
+            {
+                totalTime += timeIntervals[i];
+            }
+
+            // Set the parameters based on this new Tempo
+            tempo = (totalTime / timeIntervals.Count) * 8f;
+            Debug.Log("BPM=" +tempo);
+            leftHand.SendFloat("tempo", tempo);
+            rightHand.SendFloat("tempo", tempo);
+
+            // for the delays we need milliseconds
+            float ms = tempo * 10f;
+            mainMixer.SetFloat("sfx_delay", ms);
+            mainMixer.SetFloat("rhythmSynth_delay", ms);
+            // And Go to the Questions Portion
+            StartQuestions();
+        }
+    }
+
+    public void StartQuestions()
+    {
+        // Go to main section of music
+        beginQuestions.TransitionTo(5f);
+            
+        // And Start the chimers going at regular intervals, based on tempo
+        StartCoroutine(Chimers());
     }
     
 }

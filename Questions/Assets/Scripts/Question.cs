@@ -10,8 +10,6 @@ public class Question: MonoBehaviour {
     [Header("What question do we want to ask them")]
     public string question;
     
-    public bool answerNeeded;
-
     [Header("Are the responses random?")]
     // otherwise we can link them to the specific answer given
     public bool randomResponse;
@@ -69,8 +67,15 @@ public class Question: MonoBehaviour {
     
     public void SubmitAnswer()
     {
-        int questionValue = 99;
-        if (answerNeeded) questionValue = (int) GetComponentInChildren<Slider>().value;
+        int questionValue;
+        if (GetComponentInChildren<Slider>() != null)
+        {
+            questionValue = (int) GetComponentInChildren<Slider>().value;
+        }
+        else
+        {
+            questionValue = 99;
+        }
         StartCoroutine(ProcessAnswer(questionValue));
     }
 
@@ -78,26 +83,13 @@ public class Question: MonoBehaviour {
     {
         int v = value;
         
-        // were we actually looking for an answer 
-        if (value != 99)
-        {
-            // Store it in the GlobalVariables
-            GlobalVariables.S.AddAnswer(v);
-
-            // Say something about it?
-            // Maybe attach a text file to each question holding these comments
-            // Probably with a Coroutine?
-            // For now, let's just pick some random snarky things to say
-            // StartCoroutine(Response(v));
-
-            // Process the audio changes...
-            // for now, let's update based on what# question you're on
-            AudioManager.S.UpdateSoundtrack();
-
-            // Take a second to read the snark
-            // yield return new WaitForSeconds(2);
-        }
+        GlobalVariables.S.AddAnswer(v);
         
+        AudioManager.S.UpdateSoundtrack();
+
+        // Take a second to read the snark
+        // yield return new WaitForSeconds(2);
+
         // And fade out
         StartCoroutine(FadeOut());
         yield return null;

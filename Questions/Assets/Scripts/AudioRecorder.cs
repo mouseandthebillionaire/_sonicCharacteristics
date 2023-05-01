@@ -18,16 +18,21 @@ public class AudioRecorder : MonoBehaviour
     private int        headerSize = 44; //default for uncompressed wav
     private bool       recOutput;
     private FileStream fileStream;
+
+    public static AudioRecorder S;
     
     void Awake()
     {
-        //AudioSettings.outputSampleRate = outputRate;
+        AudioSettings.outputSampleRate = outputRate;
+        S = this;
     }
     
     // Start is called before the first frame update
     void Start()
     {
-        //AudioSettings.GetDSPBufferSize(out bufferSize, out numBuffers);
+        AudioSettings.GetDSPBufferSize(out bufferSize, out numBuffers);
+        StartWriting(fileName);
+        recOutput = true;
     }
 
     // Update is called once per frame
@@ -35,23 +40,21 @@ public class AudioRecorder : MonoBehaviour
     {
         if(Input.GetKeyDown("r"))
         {
-            print("rec");
             if(recOutput == false)
             {
                 StartWriting(fileName);
-                recOutput = true;
             }
             else
             {
-                recOutput = false;
-                WriteHeader();     
-                print("rec stop");
+                SaveRecording();
             }
         }  
     }
 
     void StartWriting(string name)
     {
+        print("rec");
+        recOutput = true;
         fileStream = new FileStream(name, FileMode.Create);
         byte emptyByte = new byte();
        
@@ -92,9 +95,10 @@ public class AudioRecorder : MonoBehaviour
         fileStream.Write(bytesData,0,bytesData.Length);
     }
     
-    void WriteHeader()
+    public void SaveRecording()
     {
-       
+        recOutput = false;
+        print("rec stop");
         fileStream.Seek(0,SeekOrigin.Begin);
        
         Byte[] riff = System.Text.Encoding.UTF8.GetBytes("RIFF");

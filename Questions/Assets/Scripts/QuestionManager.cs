@@ -22,19 +22,20 @@ public class QuestionManager : MonoBehaviour {
 
     public void StartQuestions()
     {
-        currQuestion = 0;
-        questions[currQuestion].SetActive(true);
+        currQuestion = -1;
+        AudioManager.S.StartQuestions();
+        NewQuestion();
     }
     
     // Load another Question
     public void NewQuestion() {
-        Debug.Log("loading next question");
-        // in this test version let's just work through a set of 5 questions
+        
 
         // Eventually we'll have to figure out a different way to figure out where we are in the question process
         if (currQuestion+1 < questions.Length)
         {
             currQuestion++;
+            Debug.Log("loading Question #" + currQuestion);
             questions[currQuestion].SetActive(true);
         }
         else
