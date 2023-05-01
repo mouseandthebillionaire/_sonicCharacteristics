@@ -13,7 +13,7 @@ public class AudioRecorder : MonoBehaviour
     
     private int        bufferSize;
     private int        numBuffers;
-    private int        outputRate = 44100;
+    private int        outputRate = 48000;
     private string     fileName   = "ASONGMADEJUSTFORME.wav";
     private int        headerSize = 44; //default for uncompressed wav
     private bool       recOutput;
@@ -31,6 +31,7 @@ public class AudioRecorder : MonoBehaviour
     void Start()
     {
         AudioSettings.GetDSPBufferSize(out bufferSize, out numBuffers);
+        Debug.Log(bufferSize + ":" + numBuffers);
         StartWriting(fileName);
         recOutput = true;
     }

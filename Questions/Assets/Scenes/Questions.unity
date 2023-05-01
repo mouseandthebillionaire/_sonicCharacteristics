@@ -3574,6 +3574,7 @@ GameObject:
   - component: {fileID: 1502830316}
   - component: {fileID: 1502830315}
   - component: {fileID: 1502830318}
+  - component: {fileID: 1502830319}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -3644,6 +3645,18 @@ MonoBehaviour:
   outro: {fileID: 8472985509440644387, guid: 1b855520d905145c6a33c9971604e33c, type: 2}
   snapshotStages: []
   mainMixer: {fileID: 24100000, guid: 1b855520d905145c6a33c9971604e33c, type: 2}
+--- !u!114 &1502830319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502830314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f397ae2dc50654f0d93049c921a4e85f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1607559509 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4026297360485380537, guid: 6b7593000e55c4172b5aed147f4afd24, type: 3}
