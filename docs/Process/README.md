@@ -1,7 +1,7 @@
 # Sonic Characteristics | Documentation!
 ***oh, dear. let's not let this be the final name for this thing, okay...?***
 
-## Inititial Ideas | 09.01.23
+## Inititial Ideas | 01.09.23
 
 ###  [Say what now what now?](https://youtu.be/_Ge4_stUpqs?t=19) <sup>[1](#####1)</sup>
 
@@ -94,3 +94,53 @@ And it works!
 
 <video src="https://user-images.githubusercontent.com/8988958/214916388-90996ac6-2b91-4349-986e-fed7d86ab860.mov" controls="controls"></video>
 
+## First Playthrough | 05.01.23
+
+We are soooo many months removed from the most recent update about this, but so much has hapenned. 
+
+### A Good Version?
+This is a good version! It sounds nice. Some issues with the build AND with the pull from github on a second computer, but some bug-squashing will set it right.
+
+In this version the player answers a series of questions that effect various parameters, which are right now... (note: all of this is noted in comments found in the AudioManager switch statement as well)
+* How are you feeling today 
+	* this effects a pitch shift on the track as well as the third note on a rhythmic synth line and the instrument choice for the keys track 
+* Oh yeah? How many hours of sleep did you get last night?
+	* fnote on the fourth beat of the rhythmic synth
+	* speed of the key track (quarter, 8th, 16th, etc)
+	* the left hand is half the speed of the right hand
+* Gotcha. How much time did you spend on screen yesterday?
+	* the levels of a sound effects PD patch (this isn't working right now)
+	* length of the key line (4 notes, 8 notes, 16 notes, 32 notes)
+* Would you say that that is normal for you?
+	* notes available to choose in the key track
+* WEIRD ASIDE (currently telling the player about a different player who said they hadn't looked at screens)
+	* turn up the volume on the keys track
+* Which animal is best?
+	* instrument choice for the woodwind track (right now all 5 of these instruments play the same line. Might be a good idea to have this fluctuate for some reason? i.e ascending vs descending)
+* You have just moved to a new city by yourself. You haven't made any close friendships yet, but have invited a few coworkers to your place for drinks. What food would you serve to ensure that they are thoroughly impressed but doesn't show that you have overthought this?
+	* these options do wildly different things
+		* cocktails - adds a weird vocal track
+		* pasta - removes the rhythmic synth
+		* hams - adds a ton of delay on the master track
+		* pizza - takes away the chimes (and maybe something else?)
+		* sushi - adds a noodly electric guitar track
+	* this idea is really interesting, but might be hard to use in other contexts. It's worth further testing to see if they way this is implemented makes it possible to branch, or if it needs to be funnelled back to a singular snapshot (like it does here)
+* What color was your childhood bedroom?
+	* nothing actually hapenning here
+* Over the last 9 months, how many books have you read?
+	* Slowly transition to a point where ONLY the woodwinds and spacey synth are playing
+* How many books have you told people you've read
+	* CHANGE: make this something for the player to read, a short story maybe told in the second person - could be tied to the book question?
+	* Mainly this is because the audio right nere starts to have an emotional weight, so let's do somethign with it
+* True of False: You would be a good person to have around in a crisis
+	* nothing
+	* this could be an easy branching spot. There's only 3 choices so what could those three answers say about where the music should go?
+* Option to download the song
+
+### A few Thoughts:
+* The comnposition of the music is really fun, but very challenging. It takes a lot of time to export out sounds and then test those sounds in context. The PureData patches help with that, but more might need to be done in this vein to streamline future workflow.
+* That being said, so much of the actual "feel" of this comes out in the playing. It was only by experiencing it that those compositional changes could be made. Hard to plan for this... Maybe the trick is to keep these things small.
+* This version has a LOT of variation, but overall it kind of feels the same? A branching version might be interesting, but also feels somewhat cheap? Probably worth a smaller (MUCH SMALLER) experiment to test just that idea out
+* The voice here is good, but the idea of a 2nd person story-telling aspect is compelling. Omniscient but distant and cold, but somehow observant and compassionate?
+* Not sure how much "reflection" is hapenning here. Does the player reflect on their choices based on the music? Is that what we're even going for? Eventually, probably, but worth noting that this doesn't exaclty do this
+* The biggest takeaway might be in regards to process. It was good to have these more robust commit messages, but the Process Journal suffered becuse of it. In the future, setting a goal to publish these posts weekly is proably a good idea; it will help to take a step back and gather thoughts, but also to have more of the weekly ups/downs/successes/failures on "paper."

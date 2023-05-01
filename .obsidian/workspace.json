@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/Process/Notepad.md",
+                "file": "docs/Process/README.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "docs/Process/Notepad.md",
+                "file": "docs/Process/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "docs/Process/Notepad.md",
+                "file": "docs/Process/README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "docs/Process/Notepad.md"
+                "file": "docs/Process/README.md"
               }
             }
           }
@@ -161,6 +161,8 @@
   },
   "active": "73a984e754b258c6",
   "lastOpenFiles": [
+    "docs/Process/Notepad.md",
+    "docs/Process/README.md",
     "Questions/Library/ProtocolInstance.json",
     "Questions/Temp/UnityTempFile-3221bbaf31be64f56bfa9445e4f0a394",
     "Questions/Temp/ADB-Refresh7d3c8eb1ab3c643a29bf834788833667",
@@ -171,12 +173,9 @@
     "Questions/Library/Artifacts/80/800818c4b2286480ad71ca9c50db3869",
     "Questions/Temp/ADB-Refresh2a2a39d2833fc4cc3b716bd1beb98e54",
     "Questions/Temp/UnityTempFile-9f492db39cf0041398450ec6e30ebc7c",
-    "Questions/Temp/ADB-Refreshb7223abce28214a19bce51d4483045d7",
     "Audio/arpExporter.logicx/Alternatives/000/WindowImage.jpg",
     "Questions/Assets/StreamingAssets/PdAssets/README.md",
     "docs/Process/Precedents.md",
-    "docs/Process/Notepad.md",
-    "docs/Process/PurposeStatements.md",
-    "docs/Process/README.md"
+    "docs/Process/PurposeStatements.md"
   ]
 }
