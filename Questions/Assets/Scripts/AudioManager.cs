@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
@@ -79,8 +80,8 @@ public class AudioManager : MonoBehaviour {
                 rightHand.SendFloat("instrument", a);
                 
                 // Effect the overall pitch of this? That could be funny?
-                float pitch = 1f - (a * .025f);
-                mainMixer.SetFloat("masterPitch", pitch);
+                // Let's try making this happen really slowly
+                StartCoroutine(PitchChange(a));
 
                 break;
             case 1:
@@ -145,6 +146,18 @@ public class AudioManager : MonoBehaviour {
                 break;
             default:
                 break;
+        }
+    }
+
+    private IEnumerator PitchChange(int _mood)
+    {
+        float currentPitch = 1f;
+        float finalPitch = .9f + (_mood * .025f);
+        while (currentPitch >= finalPitch)
+        {
+            currentPitch -= .001f;
+            mainMixer.SetFloat("masterPitch", currentPitch);
+            yield return new WaitForSeconds(.25f);
         }
     }
     
