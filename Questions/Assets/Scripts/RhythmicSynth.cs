@@ -66,7 +66,6 @@ public class RhythmicSynth : MonoBehaviour
         
         note.Play();
         float nextNote = 60 / AudioManager.S.tempo; // quarter notes
-        Debug.Log("Next Note in " + nextNote + " seconds");
         // what's Next
         currNote = (currNote + 1) % noteValues.Count;
         

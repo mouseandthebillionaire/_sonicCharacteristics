@@ -28,7 +28,6 @@ public class GlobalVariables : MonoBehaviour
     public void AddAnswer(int answerValue)
     {
         answers.Add(answerValue);
-        Debug.Log(answerValue + " added in slot " + QuestionManager.S.currQuestion);
     }
 
     public void Reset()

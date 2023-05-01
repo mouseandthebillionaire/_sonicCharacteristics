@@ -39,7 +39,5 @@ public class ArpManager : MonoBehaviour
         pdPatch.SendFloat("length", lineLength);
         pdPatch.SendFloat("instrument", instrument);
         pdPatch.SendFloat("noteSpeed", noteSpeed);
-        
-        Debug.Log("worky? " + noteSpread +":"+ lineLength +":"+ instrument);
     }
 }
