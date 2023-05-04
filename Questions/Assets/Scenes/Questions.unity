@@ -1413,7 +1413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fce94b45e93f42d38972566747c1ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skipIntro: 1
+  skipIntro: 0
   introText: []
   textFadeSpeed: 1
   introText_display: {fileID: 1431294108}
