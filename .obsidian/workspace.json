@@ -30,9 +30,19 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "5ef63c20dbbf00b0",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.2.7"
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -75,6 +85,14 @@
             "type": "leaf",
             "state": {
               "type": "starred",
+              "state": {}
+            }
+          },
+          {
+            "id": "3470e9f18d4a35e7",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
               "state": {}
             }
           }
@@ -159,19 +177,19 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "73a984e754b258c6",
+  "active": "5ef63c20dbbf00b0",
   "lastOpenFiles": [
-    "Questions/Temp/ADB-Refresh6a035c4630ce542c3a441859c6f2a0ae",
-    "Questions/Library/ProtocolInstance.json",
-    "Questions/Library/Bee/backend_profiler0.traceevents",
-    "Questions/Library/Bee/TundraBuildState.state",
-    "Questions/Temp/ADB-Refresh60e3c1df4417f4dcfa10b18f505b7ef8",
-    "Questions/Temp/ADB-Refresha0106c21a3b9a45b6b8bedbbf171a1e2",
-    "Questions/Library/Artifacts/a7/a772d759ef4253886ed7e7ff0c4c2e78",
-    "Questions/Temp/ADB-Refresh6220624db4fef4224abe257c36ca40f1",
-    "Questions/Library/LastBuild.buildreport",
-    "Questions/Library/Bee/backend_profiler1.traceevents",
-    "Questions/Library/PlayerScriptAssemblies/Unity.TextMeshPro.dll",
+    "Builds/Questions.app.zip",
+    "Builds/Questions.app/Contents/Resources/Data/StreamingAssets/PdAssets/Audio/ePiano/third.wav.asd",
+    "Builds/Questions.app/Contents/Resources/Data/StreamingAssets/PdAssets/Audio/ePiano/third.wav",
+    "Builds/Questions.app/Contents/Resources/Data/StreamingAssets/PdAssets/Audio/ePiano/root.wav.asd",
+    "Builds/Questions.app/Contents/Resources/Data/StreamingAssets/PdAssets/Audio/ePiano/root.wav",
+    "Builds/Questions.app/Contents/Resources/Data/StreamingAssets/PdAssets/Audio/ePiano/5.wav",
+    "Builds/Questions.app/Contents/Resources/Data/StreamingAssets/PdAssets/Audio/ePiano/fourth.wav.asd",
+    "Builds/Questions.app/Contents/Resources/Data/StreamingAssets/PdAssets/Audio/ePiano/5.wav.asd",
+    "Builds/Questions.app/Contents/Resources/Data/StreamingAssets/PdAssets/Audio/ePiano/fourth.wav",
+    "Builds/Questions.app/Contents/Resources/Data/StreamingAssets/PdAssets/Audio/ePiano/fifth.wav.asd",
+    "Builds/Questions.app/Contents/Resources/Data/StreamingAssets/PdAssets/Audio/ePiano/fifth.wav",
     "Audio/arpExporter.logicx/tmp/arpExporter.logicx/Alternatives/000/WindowImage.jpg",
     "docs/Process/Notepad.md",
     "docs/Process/README.md",

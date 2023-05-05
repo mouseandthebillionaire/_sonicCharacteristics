@@ -2,20 +2,31 @@ using System;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = System.Random;
 
 public class RecordAudio: MonoBehaviour
 {
     internal string FILENAME;
     private int outputRate;
     private int headerSize = 44; //default for uncompressed wav
-    private String fileName = "test.wav";
+    private String fileName;
     private bool recOutput = false;
     private FileStream fileStream;
     float[] tempDataSource;
 
+    public static RecordAudio S;
+
     void Awake()
     {
+        S = this;
         outputRate = AudioSettings.outputSampleRate;
+        float r = UnityEngine.Random.Range(111, 999);
+        fileName = "YOURSONG_participant#" + r + ".wav";
+    }
+
+    void Start()
+    {
+        StartRecording();
     }
 
     void Update() {

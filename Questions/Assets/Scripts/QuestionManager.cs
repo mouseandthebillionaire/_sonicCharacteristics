@@ -38,9 +38,26 @@ public class QuestionManager : MonoBehaviour {
             Debug.Log("loading Question #" + currQuestion);
             questions[currQuestion].SetActive(true);
         }
-        else
-        {
-            gameOverDialogue.SetActive(true);
-        }
+    }
+
+    public void EndQuestioning()
+    {
+        StartCoroutine(ClosingOut());
+    }
+
+    public IEnumerator ClosingOut()
+    {
+        // Get rid of the current question
+        questions[currQuestion].SetActive(false);
+        // Play a note to end the song better
+        
+        // Transition to the GameOverScreen
+        gameOverDialogue.SetActive(true);
+        // Wait a few seconds
+        yield return new WaitForSeconds(3);
+        // And shut down the program
+        Application.Quit();
+
+        yield return null;
     }
 }
