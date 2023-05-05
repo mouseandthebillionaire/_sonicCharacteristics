@@ -24,11 +24,6 @@ public class RecordAudio: MonoBehaviour
         fileName = "YOURSONG_participant#" + r + ".wav";
     }
 
-    void Start()
-    {
-        StartRecording();
-    }
-
     void Update() {
         if(Input.GetKeyDown(KeyCode.R)) StartRecording();
         if(Input.GetKeyDown(KeyCode.F)) StopRecording();

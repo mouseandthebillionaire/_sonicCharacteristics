@@ -46,6 +46,7 @@ public class AudioManager : MonoBehaviour {
         tempo = 60f;
         leftHand.SendFloat("tempo", tempo);
         rightHand.SendFloat("tempo", tempo);
+        RecordAudio.S.StartRecording();
     }
     
 
