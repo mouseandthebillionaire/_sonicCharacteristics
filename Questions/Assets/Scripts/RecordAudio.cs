@@ -6,6 +6,8 @@ using Random = System.Random;
 
 public class RecordAudio: MonoBehaviour
 {
+    public bool recording;
+    
     internal string FILENAME;
     private int outputRate;
     private int headerSize = 44; //default for uncompressed wav
@@ -19,9 +21,14 @@ public class RecordAudio: MonoBehaviour
     void Awake()
     {
         S = this;
-        outputRate = AudioSettings.outputSampleRate;
-        float r = UnityEngine.Random.Range(111, 999);
-        fileName = "YOURSONG_participant#" + r + ".wav";
+    }
+
+    void Start()
+    {
+        if (recording)
+        {
+            StartRecording();
+        }
     }
 
     void Update() {
@@ -31,8 +38,10 @@ public class RecordAudio: MonoBehaviour
 
     public void StartRecording()
     {
-        //FILENAME = "record " + UnityEngine.Random.Range(1,1000);
-        //fileName = Path.GetFileNameWithoutExtension(FILENAME) + ".mp3";
+        outputRate = AudioSettings.outputSampleRate;
+        float r = UnityEngine.Random.Range(111, 999);
+        fileName = "YOURSONG_participant#" + r + ".wav";
+        
         if (!recOutput)
         {
             StartWriting(fileName);

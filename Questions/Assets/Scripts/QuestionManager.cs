@@ -51,6 +51,8 @@ public class QuestionManager : MonoBehaviour {
         questions[currQuestion].SetActive(false);
         // Play a note to end the song better
         
+        // Stop the Recording
+        RecordAudio.S.StopRecording();
         // Transition to the GameOverScreen
         gameOverDialogue.SetActive(true);
         // Wait a few seconds

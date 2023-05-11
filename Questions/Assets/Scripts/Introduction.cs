@@ -93,9 +93,12 @@ public class Introduction : MonoBehaviour
         }
         // Change the text
         currText += 1;
-        introText_display.text = introText[currText];
+        string newText = introText[currText];
+        newText = newText.Replace("-", "\n"); // needed to force new line
+        introText_display.SetText(newText);
         
         yield return new WaitForSeconds(1);
+        // Do something to refresh the text so the newLines work correctly
         
         // Fade in the New Text
         while (introText_display.color.a < 1.0f)

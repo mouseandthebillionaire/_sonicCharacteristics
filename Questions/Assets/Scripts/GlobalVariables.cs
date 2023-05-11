@@ -7,6 +7,8 @@ public class GlobalVariables : MonoBehaviour
     // Create a List of answers so we can have access to it at any time
     // For this first version, it's going to only be integers, because.... easy?
     public List<int> answers = new List<int>();
+
+    public float currentTemperature;
     
     public static GlobalVariables S;
     

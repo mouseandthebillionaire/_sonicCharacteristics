@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2381960379216102246}
   - component: {fileID: 2381960379216102247}
+  - component: {fileID: 4214048762591765244}
   m_Layer: 0
   m_Name: Audio Source
   m_TagString: Untagged
@@ -27,7 +28,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2381960380132116618}
   m_RootOrder: 0
@@ -128,6 +128,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!168 &4214048762591765244
+AudioEchoFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2381960379216102241}
+  m_Enabled: 1
+  m_Delay: 500
+  m_DecayRatio: 0.9
+  m_WetMix: 1
+  m_DryMix: 0.75
 --- !u!1 &2381960380132116613
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +167,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.7613724, y: 1.5976181, z: 66.95343}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2381960379216102246}
   m_Father: {fileID: 0}

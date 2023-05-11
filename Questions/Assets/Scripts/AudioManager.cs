@@ -46,7 +46,8 @@ public class AudioManager : MonoBehaviour {
         tempo = 60f;
         leftHand.SendFloat("tempo", tempo);
         rightHand.SendFloat("tempo", tempo);
-        RecordAudio.S.StartRecording();
+
+        StartCoroutine(SetBasePitch());
     }
     
 
@@ -54,6 +55,25 @@ public class AudioManager : MonoBehaviour {
     void Update()
     {
 
+    }
+    
+    public float scale(float OldMin, float OldMax, float NewMin, float NewMax, float OldValue){
+     
+        float OldRange = (OldMax - OldMin);
+        float NewRange = (NewMax - NewMin);
+        float NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin;
+     
+        return(NewValue);
+    }
+    
+
+    private IEnumerator SetBasePitch()
+    {
+        // at the start of the song, we're going to effect overall pitch based on the current temperature
+        float kelvinTemp = GlobalVariables.S.currentTemperature;
+        float tempPitch = scale(202.03f, 327.15f, .4f, 2f, kelvinTemp);
+        mainMixer.SetFloat("masterPitch", tempPitch);
+        yield return null;
     }
 
     public void UpdateSoundtrack()
@@ -63,10 +83,7 @@ public class AudioManager : MonoBehaviour {
         
         // What value did we get from the question?
         int a = GlobalVariables.S.answers[stage];
-
         
-        Debug.Log("Starting Stage " + stage);
-
         switch (stage)
         { 
             case 0:
@@ -137,6 +154,10 @@ public class AudioManager : MonoBehaviour {
                 // banana aside, do nothing
                 break;
             case 9:
+                // Crisis
+
+                break;
+            case 10:
                 // Books #1 -
                 // For now no matter what, we're going to SLOWLY transition to only woodwinds and SpaceSynth
                 outro.TransitionTo(20f);
@@ -153,7 +174,7 @@ public class AudioManager : MonoBehaviour {
         while (currentPitch >= finalPitch)
         {
             currentPitch -= .001f;
-            mainMixer.SetFloat("masterPitch", currentPitch);
+            mainMixer.SetFloat("masterPitchShift", currentPitch);
             yield return new WaitForSeconds(.25f);
         }
     }

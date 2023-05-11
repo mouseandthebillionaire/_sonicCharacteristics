@@ -1,8 +1,9 @@
 # project specific files
 
-# Mouse & the Billionaire general organizational files
+# Mouse & the Billionaire general organizational and hidden files
 projectFiles/
 Builds/
+Hidden/
 
 # Process to setup Project for 2022-2023 Git Repo
 # 1 - add .gitignore

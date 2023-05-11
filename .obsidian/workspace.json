@@ -18,31 +18,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "73a984e754b258c6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "docs/Process/README.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "5ef63c20dbbf00b0",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.2.7"
-              }
-            }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -177,19 +154,24 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "5ef63c20dbbf00b0",
+  "active": "744637300558acda",
   "lastOpenFiles": [
-    "Questions/Temp/ADB-Refreshd5391dc1d97b94a0aa6fdd244ab2766b",
-    "Questions/Library/ProtocolInstance.json",
+    "Questions/Temp/Bin/Debug/Assembly-CSharp",
+    "Questions/Temp/Bin/Debug",
+    "Questions/Temp/Bin",
     "Questions/Library/Bee/TundraBuildState.state",
-    "Questions/Library/ScriptAssemblies/Assembly-CSharp.pdb.tmplVhPp",
-    "Questions/Temp/ADB-Refresh5a219b97b0fd747a7be7250a7b03e257",
-    "Questions/Temp/ADB-Refresh5df2c9a82290a447d8383c78965354d0",
-    "Questions/Assets/Scripts/RecordAudio.cs.meta",
-    "Questions/Assets/Scripts/RecordAudio.cs",
-    "Questions/Assets/Scripts/ConsoleToGUI.cs.meta",
-    "Questions/Assets/Scripts/ConsoleToGUI.cs",
-    "Questions/Temp/ADB-Refresh07a7c3556f9014aa2868d46a1d8eaee2",
+    "Questions/Library/Bee/tundra.log.json",
+    "Questions/Library/Bee/200b0aE.dag_derived",
+    "Questions/Library/Bee/200b0aE.dag",
+    "Questions/Temp/ADB-Refresh6c8c86be5a5a249a987edfd2e5d439bf",
+    "Questions/Temp/ADB-Refreshe99b130658c374857beec7dce4e02c7d",
+    "Questions/Assets/Scripts/GetCurrentWeather.cs.meta",
+    "Questions/Assets/Scripts/GetCurrentWeather.cs",
+    "Questions/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.2.1/Documentation~/index.md",
+    "Questions/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.2.1/Third Party Notices.md",
+    "Questions/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.2.1/README.md",
+    "Questions/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.2.1/LICENSE.md",
+    "Questions/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.2.1/CHANGELOG.md",
     "Audio/arpExporter.logicx/tmp/arpExporter.logicx/Alternatives/000/WindowImage.jpg",
     "docs/Process/Notepad.md",
     "docs/Process/README.md",

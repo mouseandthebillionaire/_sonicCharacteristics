@@ -7,4 +7,7 @@ And again.;true
 One more time, as naturally as possible, please.;true
 That felt a little on the *unnatural* side. Could you try that one more time.;true
 Yes. That was much better.;false
-Please take your time to continue breathing and prepare yourself for the questions to come\n\nWhen you are ready please click anywhere on the screen to continue.;false
+Please take your time to continue breathing and prepare yourself for the questions to come.;false
+Remember to take your time and slowly consider the questions before entering your responses.;false
+When you are ready please click anywhere on the screen to continue.;false
+Great.-Let us begin.;false

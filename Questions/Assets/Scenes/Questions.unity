@@ -1097,6 +1097,8 @@ GameObject:
   m_Component:
   - component: {fileID: 486779641}
   - component: {fileID: 486779640}
+  - component: {fileID: 486779643}
+  - component: {fileID: 486779642}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1117,6 +1119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   answers: 
+  currentTemperature: 0
 --- !u!4 &486779641
 Transform:
   m_ObjectHideFlags: 0
@@ -1131,6 +1134,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &486779642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486779639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ed8ee801988049cc8bc958ae42d7975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testing: 1
+  phase: 0
+--- !u!114 &486779643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486779639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff7ea5805e07c4838a6a3cb98dbee886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OpenWeatherAPIKey: 2ec185efc7af600b01a6d0273f768d08
+  publicIP: 142.126.50.96
 --- !u!1 &517323759 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4026297360485380537, guid: 6b7593000e55c4172b5aed147f4afd24, type: 3}
@@ -2223,10 +2254,10 @@ MonoBehaviour:
   - {fileID: 321782756}
   - {fileID: 8835486}
   - {fileID: 338605073}
+  - {fileID: 1242957150}
   - {fileID: 517323759}
   - {fileID: 745084079}
   - {fileID: 1337328422}
-  - {fileID: 1242957150}
   - {fileID: 905392160}
   currQuestion: 0
   gameOverDialogue: {fileID: 34306781}
@@ -3678,6 +3709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6588d784b170f46b1900d990795474f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  recording: 0
 --- !u!1 &1607559509 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4026297360485380537, guid: 6b7593000e55c4172b5aed147f4afd24, type: 3}
