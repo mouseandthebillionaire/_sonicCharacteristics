@@ -25,9 +25,7 @@ public class AudioManager : MonoBehaviour {
     public LibPdInstance sfx;
     public LibPdInstance woodwindArp;
 
-    public AudioMixerSnapshot beginQuestions;
-    public AudioMixerSnapshot addKeys;
-    public AudioMixerSnapshot addSFX;
+    public AudioMixerSnapshot intro, beginQuestions, addKeys, addSFX, ending;
 
     public AudioMixerSnapshot[] foodQuestionResults;
 
@@ -47,6 +45,7 @@ public class AudioManager : MonoBehaviour {
         leftHand.SendFloat("tempo", tempo);
         rightHand.SendFloat("tempo", tempo);
 
+        intro.TransitionTo(2);
         StartCoroutine(SetBasePitch());
     }
     
@@ -145,22 +144,40 @@ public class AudioManager : MonoBehaviour {
                 break;
             case 6:
                 // food question
-                foodQuestionResults[a].TransitionTo(5f);
+                foodQuestionResults[a].TransitionTo(5);
                 break;
             case 7:
-                // Bedroom question, don't do anything for now
+                // Asking about their city
                 break;
             case 8:
-                // banana aside, do nothing
+                // Bedroom
                 break;
             case 9:
-                // Crisis
+                // Banana Aside
 
                 break;
             case 10:
+                // Crisis
+                // Eventually branch out here to other endings
+                break;
+            case 11:
                 // Books #1 -
                 // For now no matter what, we're going to SLOWLY transition to only woodwinds and SpaceSynth
-                outro.TransitionTo(20f);
+                outro.TransitionTo(20);
+                break;
+            case 12:
+                // Second City Aside
+                break;
+            case 13:
+                // Bananas Aside
+                break;
+            case 14:
+                // Last City Aside
+                // Slowly fade the music out
+                ending.TransitionTo(20);
+                break;
+            case 15:
+                // Ask about the music
                 break;
             default:
                 break;

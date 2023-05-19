@@ -7,8 +7,13 @@ public class GlobalVariables : MonoBehaviour
     // Create a List of answers so we can have access to it at any time
     // For this first version, it's going to only be integers, because.... easy?
     public List<int> answers = new List<int>();
+    
+    // List of things that Open AI has said to the player
+    public List<string> openAIMessages = new List<string>();
 
-    public float currentTemperature;
+    public float  currentTemperature;
+    public string currentConditions;
+    public string city;
     
     public static GlobalVariables S;
     
@@ -16,7 +21,7 @@ public class GlobalVariables : MonoBehaviour
     void Awake()
     {
         S = this;
-        
+        DontDestroyOnLoad(this);
         // reset all stored variables;
         Reset();
     }

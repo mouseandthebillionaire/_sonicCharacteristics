@@ -1,20 +1,17 @@
-// from johnnydj on the Unity Forum
-// https://forum.unity.com/threads/current-weather-script.242009/
+// adapted from Iain McManus YouTube tutorial
+// https://github.com/GameDevEducation/UnityTutorial_QueryLocalWeather
 
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Networking;
 using Newtonsoft.Json;
 
 
-public class GetCurrentWeather : MonoBehaviour
+public class GetUserInformation : MonoBehaviour
 {
 	// Boolean to turn on testing which gives us a default long/lat, so as not to spam the geoplugin API
-	public  bool   testing;
+	public  bool   getIP, getLocation, getWeather;
 	private string longitude;
 	private string latitude;
 	private float  temperature;
@@ -98,8 +95,8 @@ public class GetCurrentWeather : MonoBehaviour
 
     public class OpenWeather_Rain
     {
-        [JsonProperty("1h")] public int VolumeInLastHour { get; set; }
-        [JsonProperty("3h")] public int VolumeInLast3Hours { get; set; }
+        [JsonProperty("1h")] public float VolumeInLastHour { get; set; }
+        [JsonProperty("3h")] public float VolumeInLast3Hours { get; set; }
     }
 
     public class OpenWeather_Snow
@@ -145,17 +142,17 @@ public class GetCurrentWeather : MonoBehaviour
 	private const string URL_GetPublicIP    = "https://api.ipify.org";
 	private const string URL_GetLocation    = "http://www.geoplugin.net/json.gp?ip=";
 	private const string URL_GetWeatherData = "http://api.openweathermap.org/data/2.5/weather";
-	
+
 	public void Start()
 	{
 		StartCoroutine(GetIP());
 	}
-
+	
 	private IEnumerator GetIP()
 	{
 		phase = EPhase.GetPublicIP;
 
-		if (testing)
+		if (!getIP)
 		{
 			publicIP = PrivateVariables.S.publicIP;
 			StartCoroutine(GetLocation());
@@ -186,10 +183,13 @@ public class GetCurrentWeather : MonoBehaviour
 	{
 		phase = EPhase.GetGeographicData;
 
-		if (testing)
+		if (!getLocation)
 		{
 			latitude = "45.5878";
 			longitude = "-73.6073";
+			GlobalVariables.S.city = "Montreal";
+			GlobalVariables.S.openAIMessages.Add("Did you know that Montreal is the second largest French-speaking city in the world? Isn't that wild?");
+			
 			StartCoroutine(GetWeather());
 		}
 		else
@@ -206,6 +206,13 @@ public class GetCurrentWeather : MonoBehaviour
 					location = JsonConvert.DeserializeObject<geoPluginResponse>(request.downloadHandler.text);
 					latitude = location.Latitude;
 					longitude = location.Longitude;
+					GlobalVariables.S.city = location.City;
+					
+					// Once we've done all this we'll ask OpenAI to comment on the city
+					string factRequest =
+						$"In less than 100 words, tell me one amazing fact about the city of {GlobalVariables.S.city} that I might not know? Start by saying something like 'Hey, speaking of {GlobalVariables.S.city}, did you know...' and end with an exclamatory statement.";
+					OpenAIRequests.S.GetOpenAIResponse(factRequest);
+					
 					StartCoroutine(GetWeather());
 				}
 				else
@@ -214,6 +221,7 @@ public class GetCurrentWeather : MonoBehaviour
 				}
 			}
 		}
+
 		yield return null;
 	}
 
@@ -221,9 +229,11 @@ public class GetCurrentWeather : MonoBehaviour
 	{
 		phase = EPhase.GetWeatherData;
 
-		if (testing)
+		if (!getWeather)
 		{
 			GlobalVariables.S.currentTemperature = 284.15f;
+			GlobalVariables.S.currentConditions = "moderate rain";
+			GlobalVariables.S.openAIMessages.Add("Can you believe this weather out there today?");
 			phase = EPhase.Succeeded;
 		}
 		else
@@ -243,8 +253,16 @@ public class GetCurrentWeather : MonoBehaviour
 				if (request.result == UnityWebRequest.Result.Success)
 				{
 					weather = JsonConvert.DeserializeObject<OpenWeatherResponse>(request.downloadHandler.text);
+
+					GlobalVariables.S.currentTemperature = (float) weather.KeyInfo.Temperature_FeelsLike;
+					GlobalVariables.S.currentConditions = weather.WeatherConditions[0].Description;
+					Debug.Log(GlobalVariables.S.currentConditions);
 					
-					GlobalVariables.S.currentTemperature = (float)weather.KeyInfo.Temperature_FeelsLike;
+					// Once we've done all this we'll ask OpenAI to comment on the weather
+					string factRequest =
+						$"Make hokey smalltalk about the fact that there is {GlobalVariables.S.currentConditions} in {GlobalVariables.S.city} without restating the question.";
+					OpenAIRequests.S.GetOpenAIResponse(factRequest);
+					
 					phase = EPhase.Succeeded;
 				}
 				else
@@ -253,7 +271,7 @@ public class GetCurrentWeather : MonoBehaviour
 				}
 			}
 		}
-
+		
 		yield return null;
 	}
 }

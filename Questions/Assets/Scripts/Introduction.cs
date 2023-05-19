@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEditor;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class Introduction : MonoBehaviour
 {
-    public bool skipIntro;
+    public  bool   skipIntro;
+    private Image fadePanel;
     
     // Manage the Text
     private TextAsset    introText_asset;
@@ -27,6 +28,10 @@ public class Introduction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Get Rid of the Fade Panel
+        fadePanel = GameObject.Find("FadePanel").GetComponent<Image>();
+        fadePanel.color = new Color(0, 0, 0, 0);
+        
         // Are we skipping all of this for testing reasons?
         if (skipIntro) ExitIntro();
 
