@@ -3,6 +3,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using CandyCoded.env;
 using UnityEngine;
 using UnityEngine.Networking;
 using Newtonsoft.Json;
@@ -154,8 +155,11 @@ public class GetUserInformation : MonoBehaviour
 
 		if (!getIP)
 		{
-			publicIP = PrivateVariables.S.publicIP;
-			StartCoroutine(GetLocation());
+			if (env.TryParseEnvironmentVariable("IP", out string _publicIP))
+			{
+				publicIP = _publicIP;
+				StartCoroutine(GetLocation());
+			}
 		}
 		else
 		{
@@ -241,8 +245,11 @@ public class GetUserInformation : MonoBehaviour
 			string weatherURL = URL_GetWeatherData;
 			weatherURL += $"?lat={latitude}";
 			weatherURL += $"&lon={longitude}";
-			weatherURL += $"&APPID={PrivateVariables.S.OpenWeatherAPIKey}";
-
+			if (env.TryParseEnvironmentVariable("OW_API_KEY", out string owKey))
+			{
+				weatherURL += $"&APPID={owKey}";
+			}
+			
 			// attempt to get Location
 			using (UnityWebRequest request = UnityWebRequest.Get(weatherURL))
 			{

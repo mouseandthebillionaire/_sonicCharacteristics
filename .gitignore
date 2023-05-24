@@ -5,6 +5,7 @@ projectFiles/
 Builds/
 ThirdParty/
 Hidden/
+.env
 
 # Process to setup Project for 2022-2023 Git Repo
 # 1 - add .gitignore

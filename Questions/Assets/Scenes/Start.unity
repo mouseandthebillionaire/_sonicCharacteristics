@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OpenWeatherAPIKey: 2ec185efc7af600b01a6d0273f768d08
-  openAPI_key: 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
+  OAAK: 
   publicIP: 142.126.50.96
 --- !u!114 &425619610
 MonoBehaviour:
@@ -255,7 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   getIP: 0
   getLocation: 0
-  getWeather: 0
+  getWeather: 1
   phase: 0
 --- !u!4 &425619612
 Transform:

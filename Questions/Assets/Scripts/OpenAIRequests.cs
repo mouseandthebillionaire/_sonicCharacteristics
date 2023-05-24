@@ -1,9 +1,10 @@
+/* https://www.immersivelimit.com/tutorials/how-to-use-chatgpt-in-unity */
+
 using OpenAI_API;
 using OpenAI_API.Chat;
 using OpenAI_API.Models;
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using CandyCoded.env;
 using UnityEngine;
 
 public class OpenAIRequests : MonoBehaviour
@@ -22,8 +23,11 @@ public class OpenAIRequests : MonoBehaviour
     void Start()
     {
         // This line gets your API key
-        api = new OpenAIAPI(PrivateVariables.S.openAPI_key);
-        StartConversation();
+        if (env.TryParseEnvironmentVariable("OPENAI_API_KEY", out string ak))
+        {
+            api = new OpenAIAPI(ak);
+            StartConversation();
+        }
     }
 
     private void StartConversation()
