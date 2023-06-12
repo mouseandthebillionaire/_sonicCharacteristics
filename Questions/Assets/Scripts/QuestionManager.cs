@@ -52,7 +52,7 @@ public class QuestionManager : MonoBehaviour {
         // Play a note to end the song better
         
         // Stop the Recording
-        RecordAudio.S.StopRecording();
+        if(RecordAudio.S.recording) RecordAudio.S.StopRecording();
         // Transition to the GameOverScreen
         gameOverDialogue.SetActive(true);
         // Wait a few seconds

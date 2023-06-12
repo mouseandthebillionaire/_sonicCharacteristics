@@ -132,7 +132,7 @@ public class AudioManager : MonoBehaviour {
             case 4:
                 // first aside about the person not using screens
                 // Start the SFX playing
-                // sfx.SendBang("sfxPlay");
+                sfx.SendBang("sfx_Play");
                 // And then turn up the volume
                 addSFX.TransitionTo(5);
                 break;

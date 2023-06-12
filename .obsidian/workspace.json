@@ -93,7 +93,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "docs/Process/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +109,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "docs/Process/README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -132,9 +130,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "docs/Process/README.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -154,19 +150,21 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "744637300558acda",
+  "active": "40bd7f141a18a760",
   "lastOpenFiles": [
-    "Questions/Library/Bee/artifacts/MacStandalonePlayerBuildProgram/4g2s2/815e_cMethods10-9a008442.o.tmp",
-    "Questions/Library/Bee/artifacts/MacStandalonePlayerBuildProgram/4g2s2/355o_apperTable.o",
-    "Questions/Library/Bee/artifacts/MacStandalonePlayerBuildProgram/4t7v3/815e_cMethods10-10bbe93c.o.tmp",
-    "Questions/Library/Bee/artifacts/MacStandalonePlayerBuildProgram/4g2s2/355o_apperTable-ba02cb15.o.tmp",
-    "Questions/Library/Bee/artifacts/MacStandalonePlayerBuildProgram/4t7v3/355o_apperTable.o",
-    "Questions/Library/Bee/artifacts/MacStandalonePlayerBuildProgram/4t7v3/uo36_ntsModule4.o",
-    "Questions/Library/Bee/artifacts/MacStandalonePlayerBuildProgram/4t7v3/355o_apperTable-e725fdd2.o.tmp",
-    "Questions/Library/Bee/artifacts/MacStandalonePlayerBuildProgram/4g2s2/uo36_ntsModule4.o",
-    "Questions/Library/Bee/artifacts/MacStandalonePlayerBuildProgram/4g2s2/96fu_Generics14-b5a35eb1.o.tmp",
-    "Questions/Library/Bee/artifacts/MacStandalonePlayerBuildProgram/4t7v3/33wo_Generics34.o",
-    "Questions/Library/Bee/artifacts/MacStandalonePlayerBuildProgram/4t7v3/96fu_Generics14-ea0e5d12.o.tmp",
+    "docs/Process/README.md",
+    "Questions/Temp/Bin/Debug/Assembly-CSharp",
+    "Questions/Temp/Bin/Debug/CandyCoded.env.Editor",
+    "Questions/Temp/Bin/Debug/Unity.Rider.Editor",
+    "Questions/Temp/Bin/Debug/CandyCoded.env",
+    "Questions/Temp/Bin/Debug",
+    "Questions/Temp/Bin",
+    "Questions/Temp/ADB-Refresh1536982471cdd487ebfa57d7226ad78c",
+    "Questions/Temp/ADB-Refresh8653c2492f91c4869a5c5350994d0dc7",
+    "docs/Process/Media/weather.png",
+    "Questions/YOURSONG_participant#567.wav",
+    "Questions/Library/ProtocolInstance.json",
+    "().md",
     "Questions/Library/PackageCache/com.unity.timeline@1.7.4/Samples~/Customization/Annotation/Editor/Resources/light/timeline_annotation_selected.png",
     "Questions/Library/PackageCache/com.unity.timeline@1.7.4/Samples~/Customization/Annotation/Editor/Resources/light/timeline_annotation_collapsed.png",
     "Questions/Library/PackageCache/com.unity.timeline@1.7.4/Samples~/Customization/Annotation/Editor/Resources/light/timeline_annotation.png",
@@ -176,7 +174,6 @@
     "Questions/Library/PackageCache/com.unity.timeline@1.7.4/Samples~/GameplaySequenceDemo/Particles/Misc Effects/Textures/SparkParticle.png",
     "Questions/Library/PackageCache/com.unity.timeline@1.7.4/Samples~/GameplaySequenceDemo/Particles/Misc Effects/Textures/DustPuffSmall.png",
     "Questions/Library/PackageCache/com.unity.timeline@1.7.4/Samples~/GameplaySequenceDemo/Particles/Misc Effects/Textures/DustMote.png",
-    "Questions/Library/PackageCache/com.unity.timeline@1.7.4/Samples~/GameplaySequenceDemo/Particles/Goop Effects/Textures/GoopSprayNormals.png",
     "Questions/Library/PackageCache/com.unity.timeline@1.7.4/Documentation~/wf_rec_anim.md",
     "Questions/Library/PackageCache/com.unity.timeline@1.7.4/Documentation~/wf_nested.md",
     "Questions/Library/PackageCache/com.unity.timeline@1.7.4/Documentation~/wf_mask.md",
@@ -199,8 +196,6 @@
     "Questions/Library/PackageCache/com.unity.timeline@1.7.4/Documentation~/tl_play_cntrls.md",
     "Questions/Library/PackageCache/com.unity.timeline@1.7.4/Documentation~/tl_gloss.md",
     "Questions/Library/PackageCache/com.unity.timeline@1.7.4/Documentation~/tl_about.md",
-    "Questions/Library/PackageCache/com.unity.timeline@1.7.4/Documentation~/smpl_custom_video.md",
-    "Questions/Library/PackageCache/com.unity.timeline@1.7.4/Documentation~/smpl_custom_tween.md",
-    "Questions/Library/PackageCache/com.unity.timeline@1.7.4/Documentation~/smpl_custom_time.md"
+    "Questions/Library/PackageCache/com.unity.timeline@1.7.4/Documentation~/smpl_custom_video.md"
   ]
 }

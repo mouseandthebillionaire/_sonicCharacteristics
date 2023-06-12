@@ -38,6 +38,7 @@ public class RecordAudio: MonoBehaviour
 
     public void StartRecording()
     {
+        recording = true;
         outputRate = AudioSettings.outputSampleRate;
         float r = UnityEngine.Random.Range(111, 999);
         fileName = "YOURSONG_participant#" + r + ".wav";

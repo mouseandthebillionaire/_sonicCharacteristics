@@ -7,6 +7,7 @@ using CandyCoded.env;
 using UnityEngine;
 using UnityEngine.Networking;
 using Newtonsoft.Json;
+using UnityEditor;
 
 
 public class GetUserInformation : MonoBehaviour
@@ -178,6 +179,7 @@ public class GetUserInformation : MonoBehaviour
 				else
 				{
 					Debug.Log($"Failed to get public IP: {request.downloadHandler.text}");
+					GlobalVariables.S.error = true;
 				}
 			}
 		}
@@ -222,6 +224,7 @@ public class GetUserInformation : MonoBehaviour
 				else
 				{
 					Debug.Log($"Failed to get location: {request.downloadHandler.text}");
+					GlobalVariables.S.error = true;
 				}
 			}
 		}
@@ -239,6 +242,7 @@ public class GetUserInformation : MonoBehaviour
 			GlobalVariables.S.currentConditions = "moderate rain";
 			GlobalVariables.S.openAIMessages.Add("Can you believe this weather out there today?");
 			phase = EPhase.Succeeded;
+			GlobalVariables.S.loading = false;
 		}
 		else
 		{
@@ -271,10 +275,12 @@ public class GetUserInformation : MonoBehaviour
 					OpenAIRequests.S.GetOpenAIResponse(factRequest);
 					
 					phase = EPhase.Succeeded;
+					GlobalVariables.S.loading = false;
 				}
 				else
 				{
 					Debug.Log($"Failed to get weather: {request.downloadHandler.text}");
+					GlobalVariables.S.error = true;
 				}
 			}
 		}

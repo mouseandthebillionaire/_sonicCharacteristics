@@ -14,6 +14,9 @@ public class GlobalVariables : MonoBehaviour
     public float  currentTemperature;
     public string currentConditions;
     public string city;
+
+    public bool loading;
+    public bool error;
     
     public static GlobalVariables S;
     
@@ -43,5 +46,8 @@ public class GlobalVariables : MonoBehaviour
         {
             answers.Remove(i);
         }
+
+        loading = true;
+        error = false;
     }
 }
