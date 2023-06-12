@@ -1,5 +1,4 @@
-# Sonic Characteristics | Documentation!
-***oh, dear. let's not let this be the final name for this thing, okay...?***
+# A Few Questions | Documentation!
 
 ## Inititial Ideas | 01.09.23
 
@@ -145,3 +144,27 @@ In this version the player answers a series of questions that effect various par
 * The voice here is good, but the idea of a 2nd person story-telling aspect is compelling. Omniscient but distant and cold, but somehow observant and compassionate?
 * Not sure how much "reflection" is hapenning here. Does the player reflect on their choices based on the music? Is that what we're even going for? Eventually, probably, but worth noting that this doesn't exaclty do this
 * The biggest takeaway might be in regards to process. It was good to have these more robust commit messages, but the Process Journal suffered becuse of it. In the future, setting a goal to publish these posts weekly is proably a good idea; it will help to take a step back and gather thoughts, but also to have more of the weekly ups/downs/successes/failures on "paper."
+
+## Out in the Wild | 06.12.23
+
+The game is now built, published, and up on an [itch page](https://mouseandthebillionaire.itch.io/a-few-questions). Right it's password protected so we don't blow through the API credits, but feel free to reach out if you are interested in giving it a shot. Also, as of now it's Mac-only. Not sure if it's worth it to port over, but maybe? If only so ZSpace can give feedback on it.
+
+Speaking of APIs...
+
+### APIS!
+So this version is getting roped into the EDGY AI grantwork and makes use of a few fun tricks. We get the user's IP address so the program can make comments about the city that they are playing in and its current weather. These requests are sent to OpenAI to make the comments more dynamic (and hopefully kind of creepy?)
+
+![[weather.png]]
+
+It was fairly easy to integrate OpenAI in this thing. This is definitely where things are going to be going, and it's fun to be playing around with it in these early days.
+
+### Thoughts
+Having done a few playtests, some thoughts before we move on to wider testing:
+
+* Both RK and DR mentioned that there isn't an explicit understanding that the choices are affecting the music, and, since this is kind of the point, this need to be made more clear. The plan is to have this happen after the intro (i.e "thank you, I have synced the music to your breath, hopefully this will blah blah blah")
+* There still isn't enough variety with the music probably?
+* A button that you can't click? It's a funny idea.
+* More AI comments?
+* As of now there are no fallbacks if the APIs fail. Since this isn't going to be a commercial release it's probably fine, but something to think about when we are interfacing with other external databases etc.
+* It seems that the code-signing works, but the song doesn't always download (there should be a request to grant access to the desktop if all is working well), and the build completely failed for RK?
+* A musical interlude would be funny, but takes away from the you-have-a-unique-song-at-the-end thing.
