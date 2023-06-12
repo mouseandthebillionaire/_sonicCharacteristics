@@ -154,7 +154,7 @@ Speaking of APIs...
 ### APIS!
 So this version is getting roped into the EDGY AI grantwork and makes use of a few fun tricks. We get the user's IP address so the program can make comments about the city that they are playing in and its current weather. These requests are sent to OpenAI to make the comments more dynamic (and hopefully kind of creepy?)
 
-![[Media/weather.png]]
+<img src="Media/weather.png" width="500" />
 
 It was fairly easy to integrate OpenAI in this thing. This is definitely where things are going to be going, and it's fun to be playing around with it in these early days.
 

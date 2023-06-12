@@ -18,8 +18,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "502b8bc26a2475c3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/Process/README.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -154,10 +167,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "744637300558acda",
+  "active": "502b8bc26a2475c3",
   "lastOpenFiles": [
-    "().md",
     "docs/Process/README.md",
+    "().md",
     "Questions/Temp/Bin/Debug/Assembly-CSharp",
     "Questions/Temp/Bin/Debug/CandyCoded.env.Editor",
     "Questions/Temp/Bin/Debug/Unity.Rider.Editor",
