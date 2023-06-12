@@ -247,6 +247,7 @@ public class AudioManager : MonoBehaviour {
         {
             float elapsedTime = Time.time - startTime;
             timeIntervals.Add(elapsedTime);
+            Debug.Log(elapsedTime + " have passed since the last click");
             startTime = Time.time;
         }
         
@@ -260,14 +261,14 @@ public class AudioManager : MonoBehaviour {
             }
 
             // Set the parameters based on this new Tempo
-            tempo = (totalTime / timeIntervals.Count) * 8f;
+            tempo = 90f - 4f * (totalTime / timeIntervals.Count);
             Debug.Log("BPM=" +tempo);
             leftHand.SendFloat("tempo", tempo);
             rightHand.SendFloat("tempo", tempo);
 
             // for the delays we need milliseconds
-            float ms = tempo * 10f;
-            mainMixer.SetFloat("sfx_delay", ms);
+            float ms = 1000 - (tempo * 10f);
+            mainMixer.SetFloat("chimer_delay", ms);
             mainMixer.SetFloat("rhythmSynth_delay", ms);
             // And Go to the Questions Portion
             StartQuestions();
