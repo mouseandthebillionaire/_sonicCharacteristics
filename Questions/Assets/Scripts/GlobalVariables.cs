@@ -15,7 +15,7 @@ public class GlobalVariables : MonoBehaviour
     public string currentConditions;
     public string city;
 
-    public bool loading;
+    public bool loading, ready;
     public bool error;
     
     public static GlobalVariables S;
@@ -48,6 +48,7 @@ public class GlobalVariables : MonoBehaviour
         }
 
         loading = true;
+        ready = false;
         error = false;
     }
 }

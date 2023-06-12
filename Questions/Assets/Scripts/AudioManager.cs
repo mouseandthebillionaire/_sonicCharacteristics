@@ -73,6 +73,8 @@ public class AudioManager : MonoBehaviour {
         float tempPitch = scale(202.03f, 327.15f, .4f, 2f, kelvinTemp);
         mainMixer.SetFloat("masterPitch", tempPitch);
         yield return null;
+        
+        // do we want the system to comment on this?
     }
 
     public void UpdateSoundtrack()

@@ -35,7 +35,6 @@ public class QuestionManager : MonoBehaviour {
         if (currQuestion+1 < questions.Length)
         {
             currQuestion++;
-            Debug.Log("loading Question #" + currQuestion);
             questions[currQuestion].SetActive(true);
         }
     }

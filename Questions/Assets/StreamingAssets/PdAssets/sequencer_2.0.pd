@@ -519,7 +519,9 @@
 #X connect 31 0 18 0;
 #X restore 695 388 pd sampleLoader brightSynth;
 #X obj 35 244 print PDSTART;
+#X obj 270 165 print TEMPO;
 #X connect 0 0 73 0;
+#X connect 0 0 92 0;
 #X connect 1 0 3 0;
 #X connect 2 0 6 0;
 #X connect 2 0 70 0;

@@ -7,6 +7,7 @@ And again.;true
 One more time, as naturally as possible, please.;true
 That felt a little on the *unnatural* side. Could you try that one more time.;true
 Yes. That was much better.;false
+I have synced up the music to your breathing pattern.-This should provide the most ideal sonic experience for you.;false
 Please take your time to continue breathing and prepare yourself for the questions to come.;false
 Make sure to slowly consider the questions before entering your responses.;false
 When you are ready please click anywhere on the screen to continue.;false

@@ -254,9 +254,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ed8ee801988049cc8bc958ae42d7975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  getIP: 1
-  getLocation: 1
-  getWeather: 1
+  getIP: 0
+  getLocation: 0
+  getWeather: 0
   phase: 0
 --- !u!4 &425619612
 Transform:

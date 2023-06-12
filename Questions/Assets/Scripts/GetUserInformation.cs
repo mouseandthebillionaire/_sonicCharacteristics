@@ -276,6 +276,7 @@ public class GetUserInformation : MonoBehaviour
 					
 					phase = EPhase.Succeeded;
 					GlobalVariables.S.loading = false;
+					GlobalVariables.S.ready = true;
 				}
 				else
 				{
