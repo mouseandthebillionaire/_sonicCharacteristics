@@ -33,7 +33,7 @@ public class OpenAIRequests : MonoBehaviour
     private void StartConversation()
     {
         messages = new List<ChatMessage> {
-            new ChatMessage(ChatMessageRole.System, "You are an inquisitive robot who is asking questions of a human participant. They do not fully trust you.")
+            new ChatMessage(ChatMessageRole.System, "You are an inquisitive robot who is asking questions of a human participant. They do not fully trust you, but you want to be as friendly as possible to win their trust.")
         };
     }
 

@@ -216,7 +216,7 @@ public class GetUserInformation : MonoBehaviour
 					
 					// Once we've done all this we'll ask OpenAI to comment on the city
 					string factRequest =
-						$"In less than 100 words, tell me one amazing fact about the city of {GlobalVariables.S.city} that I might not know? Start by saying something like 'Hey, speaking of {GlobalVariables.S.city}, did you know...' and end with an exclamatory statement.";
+						$"Tell me one new, unique, random and outrageous fact about the city of {GlobalVariables.S.city} that I probably don't know and you have never told me before. Start by saying something like 'Hey, speaking of {GlobalVariables.S.city}, did you know...' and end with an exclamatory statement. Make sure it is between 25 and 38 words and a complete thought.";
 					OpenAIRequests.S.GetOpenAIResponse(factRequest);
 					
 					StartCoroutine(GetWeather());
@@ -271,7 +271,7 @@ public class GetUserInformation : MonoBehaviour
 					
 					// Once we've done all this we'll ask OpenAI to comment on the weather
 					string factRequest =
-						$"Make hokey smalltalk about the fact that there is {GlobalVariables.S.currentConditions} in {GlobalVariables.S.city} without restating the question.";
+						$"Make hokey smalltalk about the fact that there is {GlobalVariables.S.currentConditions} in {GlobalVariables.S.city} without restating the question. Make sure it is between 20 and 40 words and a complete thought.";
 					OpenAIRequests.S.GetOpenAIResponse(factRequest);
 					
 					phase = EPhase.Succeeded;

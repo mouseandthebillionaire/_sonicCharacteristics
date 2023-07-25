@@ -318,6 +318,7 @@ AudioMixerSnapshotController:
     5af4233cbc6ed4bbc9dfd80e345d2451: 0.5
     5332856cec3a946e89b0a57d9112ad70: 535
     7e3f967c521df434dbd6507fffb702a2: -80
+    1b22ff7c447174f45ad782d05c5ace42: 0
     b719294dee9e840ac9337c51519f15db: 0.84400004
     cfdf8c6d1b0b74d2d941b303c3254750: 7.81
     c9f78f9d5144541d593f136628d6a2d8: -0.02577656
@@ -557,12 +558,13 @@ AudioMixerSnapshotController:
     918f4edad1a524cbfa9786765a4367d9: -80
     889e70ea293844d58812e1f24f700bee: 1
     8b2cf05b2bbc8446592cbbd371e2c4bb: 5.02454
-    d30d986b03636417eafe8df2a5071cbc: -5.0313673
+    d30d986b03636417eafe8df2a5071cbc: -24
     e94dfb8b79b7d4051960ee610ae3568a: -80
     0f804c2c977724b60916ff0f217ef759: 0.025578512
     5af4233cbc6ed4bbc9dfd80e345d2451: 0.5
     5332856cec3a946e89b0a57d9112ad70: 535
     7e3f967c521df434dbd6507fffb702a2: -80
+    1b22ff7c447174f45ad782d05c5ace42: 0.948
     b719294dee9e840ac9337c51519f15db: 0.84400004
     cfdf8c6d1b0b74d2d941b303c3254750: 7.81
     c9f78f9d5144541d593f136628d6a2d8: -0.02577656
@@ -597,6 +599,8 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
+  - guid: f667a3c72d67c464093cd319fbbc5afb
+    name: chimer_delay
   - guid: 8b2cf05b2bbc8446592cbbd371e2c4bb
     name: leadVolume
   - guid: 3baca12428d9241128bfaff6cda699be
@@ -624,7 +628,7 @@ AudioMixerController:
     - 479139e3f4bac4f7081c7f57bbdd5b51
     name: View
   m_CurrentViewIndex: 0
-  m_TargetSnapshot: {fileID: -5119870928693004105}
+  m_TargetSnapshot: {fileID: 8075010530360582458}
 --- !u!243 &24300002
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -944,13 +948,14 @@ AudioMixerSnapshotController:
     918f4edad1a524cbfa9786765a4367d9: -55.41418
     889e70ea293844d58812e1f24f700bee: 1
     8b2cf05b2bbc8446592cbbd371e2c4bb: 0.23288241
-    d30d986b03636417eafe8df2a5071cbc: 0.13552584
+    d30d986b03636417eafe8df2a5071cbc: -11.8
     e94dfb8b79b7d4051960ee610ae3568a: -80
     0f804c2c977724b60916ff0f217ef759: 0.3945702
     5af4233cbc6ed4bbc9dfd80e345d2451: 0.5
     c293926c9c8cb4dc5a02809457069472: -80
     5332856cec3a946e89b0a57d9112ad70: 535
     7e3f967c521df434dbd6507fffb702a2: -80
+    1b22ff7c447174f45ad782d05c5ace42: 0
     b719294dee9e840ac9337c51519f15db: 0.84400004
     c9f78f9d5144541d593f136628d6a2d8: 0
     6e436d9ec397342e294f5e537d54331c: 0.46

@@ -7,6 +7,8 @@ public class GlobalVariables : MonoBehaviour
     // Create a List of answers so we can have access to it at any time
     // For this first version, it's going to only be integers, because.... easy?
     public List<int> answers = new List<int>();
+    // Keep track of what the current answer is
+    public int currAnswer;
     
     // List of things that Open AI has said to the player
     public List<string> openAIMessages = new List<string>();
@@ -50,5 +52,6 @@ public class GlobalVariables : MonoBehaviour
         loading = true;
         ready = false;
         error = false;
+        currAnswer = 99;
     }
 }

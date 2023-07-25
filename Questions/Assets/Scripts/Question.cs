@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -6,32 +7,61 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Question: MonoBehaviour {
-    [Header("What question do we want to ask them")]
-    public string question;
-    
-    [Header("Are the responses random?")]
-    // otherwise we can link them to the specific answer given
-    public bool randomResponse;
+public class Question: MonoBehaviour
+{
+    [Header("What question do we want to ask them")] 
+    public bool AI_Question;
+    [Header("Set this manually for each stage")]
+    public int ai_stage;
 
-    [Header("these can be edited for greater immersion")]
-    public string[] responseText = new string[]
-    {
-        "really?",
-        "I'm sorry to hear that.",
-        "yeah?",
-        "oh, yeah? Huh.",
-        "well, okay then!"
-    };
+    [TextArea(5, 10)]
+    public string question;
+
+    public string[] answers;
 
     private Image fadePanel;
     private float textFadeSpeed = 1f;
 
+    public bool respondAfter;
+
     private void Start()
     {
+        StartCoroutine(PrepQuestion());
         StartCoroutine(FadeIn());
     }
 
+    private IEnumerator PrepQuestion()
+    {
+        GameObject questionText = GameObject.Find("Canvas/QuestionText");
+        // Set the Question
+        if (AI_Question)
+        {
+            switch (ai_stage) {
+                case 0: 
+                    questionText.GetComponent<TMP_Text>().text = $"I see that you're in {GlobalVariables.S.city} right now. Is it a nice place?";
+                    break;
+                case 1: 
+                    questionText.GetComponent<TMP_Text>().text = GlobalVariables.S.openAIMessages[ai_stage - 1]; 
+                    break;
+                case 2:
+                    questionText.GetComponent<TMP_Text>().text = GlobalVariables.S.openAIMessages[ai_stage - 1]; 
+                    break;
+                default:
+                    break;
+            }
+        }
+        else
+        {
+            questionText.GetComponent<TMP_Text>().text = question;
+        }
+
+        // Set the Answers
+        for (int i = 0; i < answers.Length; i++) {
+            GameObject a_GO = GameObject.Find("Answers/" + i);
+            a_GO.GetComponentInChildren<TMP_Text>().text = answers[i];
+        } 
+        yield return null;
+    }
     private IEnumerator FadeIn()
     {
         fadePanel = GameObject.Find("FadePanel").GetComponent<Image>();
@@ -46,37 +76,12 @@ public class Question: MonoBehaviour {
                 fadePanel.color.a - (Time.deltaTime * textFadeSpeed));
             yield return null;
         }
-
-        //fadePanel.gameObject.SetActive(false);
     }
-    
-    
 
-    // Effect Chooser
-    // Not actually using this right now, but let's save it for later
-    // public enum Effects
-    // {
-    //     LeadInstrument = 0,
-    //     DelayWetMix = 1,
-    //     DelayTime = 2,
-    //     Distortion = 3,
-    //     Pitch = 4
-    // };
-    //
-    // public Effects effect = new Effects();
-    
-    public void SubmitAnswer()
-    {
-        int questionValue;
-        if (GetComponentInChildren<Slider>() != null)
-        {
-            questionValue = (int) GetComponentInChildren<Slider>().value;
-        }
-        else
-        {
-            questionValue = 99;
-        }
-        StartCoroutine(ProcessAnswer(questionValue));
+    public void SubmitAnswer(int _answer)
+    { 
+        Debug.Log("answer is " + _answer);
+        StartCoroutine(ProcessAnswer(_answer));
     }
 
     private IEnumerator ProcessAnswer(int value)
@@ -84,24 +89,14 @@ public class Question: MonoBehaviour {
         int v = value;
         
         GlobalVariables.S.AddAnswer(v);
-        
-        AudioManager.S.UpdateSoundtrack();
 
-        // Take a second to read the snark
-        // yield return new WaitForSeconds(2);
+        AudioManager.S.UpdateSoundtrack();
 
         // And fade out
         StartCoroutine(FadeOut());
         yield return null;
     }
 
-    private IEnumerator Response(int responseValue)
-    {
-        TMPro.TMP_Text snark = GameObject.Find("Response").GetComponent<TMP_Text>();
-        snark.text = responseText[responseValue];
-        yield return null;
-    }
-    
     private IEnumerator FadeOut()
     {
         fadePanel = GameObject.Find("FadePanel").GetComponent<Image>();
@@ -121,9 +116,17 @@ public class Question: MonoBehaviour {
         // Hide the question when all this is finished
         this.gameObject.SetActive(false);
         
-        // And tell the Question Manager to load the next question
-        QuestionManager.S.NewQuestion();
+                
+        // Do we use this opportunity to comment and make an Audio Change?
+        if (respondAfter)
+        {
+            ResponseManager.S.Respond();
+        }
+        else
+        {
+            // Otherwise, just tell the Question Manager to load the next question
+            QuestionManager.S.NewQuestion();
+        }
 
-        
     }
 }
