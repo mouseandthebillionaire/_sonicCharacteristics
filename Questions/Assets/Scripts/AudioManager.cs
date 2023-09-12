@@ -69,7 +69,16 @@ public class AudioManager : MonoBehaviour {
     private IEnumerator SetBasePitch()
     {
         // at the start of the song, we're going to effect overall pitch based on the current temperature
-        float kelvinTemp = GlobalVariables.S.currentTemperature;
+        // if it exists
+        float kelvinTemp = 0;
+        if (GlobalVariables.S.currentTemperature != null)
+        {
+            kelvinTemp = GlobalVariables.S.currentTemperature;
+        }
+        else
+        {
+            kelvinTemp = 200f;
+        }
         float tempPitch = scale(202.03f, 327.15f, .4f, 2f, kelvinTemp);
         mainMixer.SetFloat("masterPitch", tempPitch);
         yield return null;
@@ -105,7 +114,7 @@ public class AudioManager : MonoBehaviour {
                 
                 // Update Note Speed for Leads
                 // Less sleep means you need more notes to pep you up!
-                float noteSpeed = (a + 1) * 0.25f;
+                float noteSpeed = (a + 1) * 0.125f;
                 rightHand.SendFloat("noteSpeed", noteSpeed);
                 // Left Hand is half the speed
                 noteSpeed = noteSpeed * 2;
@@ -247,7 +256,6 @@ public class AudioManager : MonoBehaviour {
         {
             float elapsedTime = Time.time - startTime;
             timeIntervals.Add(elapsedTime);
-            Debug.Log(elapsedTime + " have passed since the last click");
             startTime = Time.time;
         }
         
