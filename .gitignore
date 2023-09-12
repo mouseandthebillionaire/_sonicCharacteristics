@@ -3,6 +3,7 @@
 # Mouse & the Billionaire general organizational, third party, and hidden files
 projectFiles/
 Builds/
+.Builds/
 ThirdParty/
 Hidden/
 .env
